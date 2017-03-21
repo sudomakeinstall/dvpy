@@ -1,1 +1,1 @@
-    $ pip install git_https://github.com/dvigneault/dvpy.git
+    $ pip install git+https://github.com/dvigneault/dvpy.git
