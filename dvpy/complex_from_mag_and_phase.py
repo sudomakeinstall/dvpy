@@ -17,6 +17,6 @@ def complex_from_mag_and_phase(m, p):
     Elementwise complexified array
 
   """
-  r = m * np.cos(p)
-  i = m * np.sin(p)
+  r = np.multiply(m, np.cos(p))
+  i = np.multiply(m, np.sin(p))
   return r + i * 1.0j
