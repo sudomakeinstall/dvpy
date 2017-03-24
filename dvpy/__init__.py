@@ -11,6 +11,7 @@ from .save_interpolated_image import *
 from .geometry import *
 #from .save_png import *
 from .latex_macro import *
+from .bounding_box import bounding_box
 
 __all__ = [
           'complex_from_mag_and_phase',
@@ -28,5 +29,6 @@ __all__ = [
           'distance_from_point_to_plane',
           'distance_from_points_to_plane',
           'latex_macro',
+          'bounding_box',
 #          'save_png',
           ]
