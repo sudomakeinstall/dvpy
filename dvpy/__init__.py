@@ -14,6 +14,7 @@ from .latex_macro import *
 from .bounding_box import bounding_box
 from .crop_or_pad_to_target import *
 from .rescale_phase_siemens import *
+from .correct_nonuniform_illumination import *
 
 __all__ = [
           'complex_from_mag_and_phase',
@@ -35,4 +36,5 @@ __all__ = [
 #          'save_png',
           'crop_or_pad_to_target',
           'rescale_phase_siemens',
+          'correct_nonuniform_illumination',
           ]
