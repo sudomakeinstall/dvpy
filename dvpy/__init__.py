@@ -12,6 +12,7 @@ from .geometry import *
 #from .save_png import *
 from .latex_macro import *
 from .bounding_box import bounding_box
+from .crop_or_pad_to_target import *
 
 __all__ = [
           'complex_from_mag_and_phase',
@@ -31,4 +32,5 @@ __all__ = [
           'latex_macro',
           'bounding_box',
 #          'save_png',
+          'crop_or_pad_to_target',
           ]
