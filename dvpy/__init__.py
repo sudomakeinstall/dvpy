@@ -9,7 +9,7 @@ from .determine_number_of_files import *
 from .crop_array import *
 from .save_interpolated_image import *
 from .geometry import *
-#from .save_png import *
+from .save_png import *
 from .latex_macro import *
 from .bounding_box import bounding_box
 from .crop_or_pad_to_target import *
@@ -33,7 +33,7 @@ __all__ = [
           'distance_from_points_to_plane',
           'latex_macro',
           'bounding_box',
-#          'save_png',
+          'save_png',
           'crop_or_pad_to_target',
           'rescale_phase_siemens',
           'correct_nonuniform_illumination',
