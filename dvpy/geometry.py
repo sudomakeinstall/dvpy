@@ -19,8 +19,10 @@ def distance_from_points_to_plane(points,
   return [[distance_from_point_to_plane(p, plane_origin, plane_normal) for p in r]
                                                                            for r in points]
 
-def generate_circle(cx = 0.0, cy = 0.0, r = 1.0, N = 6):
+def generate_circle(cx = 0.0, cy = 0.0, r = 1.0, N = 6, counterclockwise = True):
   angle = np.asarray([np.float64(i) for i in range(N)]) * 2.0 * np.pi / N
+  if counterclockwise:
+    angle *= -1
   real = r * np.cos(angle) + cx
   imag = r * np.sin(angle) + cy
   return np.array([real, imag]).transpose()
