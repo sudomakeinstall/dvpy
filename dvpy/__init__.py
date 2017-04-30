@@ -16,6 +16,7 @@ from .crop_or_pad_to_target import *
 from .rescale_phase_siemens import *
 from .correct_nonuniform_illumination import *
 from .nii_vol_to_slices import *
+from .subdivide_quadratic_bspline import *
 
 __all__ = [
           'complex_from_mag_and_phase',
@@ -39,4 +40,5 @@ __all__ = [
           'rescale_phase_siemens',
           'correct_nonuniform_illumination',
           'nii_vol_to_slices',
+          'subdivide_quadratic_bspline',
           ]
