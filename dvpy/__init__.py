@@ -17,6 +17,7 @@ from .rescale_phase_siemens import *
 from .correct_nonuniform_illumination import *
 from .nii_vol_to_slices import *
 from .subdivide_quadratic_bspline import *
+from .keep_largest_connected_component import *
 
 __all__ = [
           'complex_from_mag_and_phase',
@@ -41,4 +42,5 @@ __all__ = [
           'correct_nonuniform_illumination',
           'nii_vol_to_slices',
           'subdivide_quadratic_bspline',
+          'keep_largest_connected_component',
           ]
