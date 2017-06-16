@@ -1,7 +1,7 @@
 import numpy as np
 
 # https://stackoverflow.com/questions/18352973/mask-a-circular-sector-in-a-numpy-array#41743189
-def sector_mask(shape,centre,radius,angle_range,degrees=False):
+def sector_mask(shape,centre,radius,angle_range=(0, np.pi*2),degrees=False):
     """
     Return a boolean mask for a circular sector. The start/stop angles in
     `angle_range` should be given in clockwise order.
