@@ -36,4 +36,6 @@ def capture_coordinates_from_image(image):
   plt.gca().yaxis.set_major_locator(plt.NullLocator())
   plt.show()
   fig.canvas.mpl_disconnect(cid)
+  if (capture_object.x is None) or (capture_object.y is None):
+    raise ValueError('No point was selected.')
   return capture_object
