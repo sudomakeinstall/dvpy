@@ -19,6 +19,7 @@ from .nii_vol_to_slices import *
 from .subdivide_quadratic_bspline import *
 from .keep_largest_connected_component import *
 from .wrapped_phase_difference import *
+from .sector_mask import *
 
 __all__ = [
           'complex_from_mag_and_phase',
@@ -45,4 +46,5 @@ __all__ = [
           'subdivide_quadratic_bspline',
           'keep_largest_connected_component',
           'wrapped_phase_difference',
+          'sector_mask',
           ]
