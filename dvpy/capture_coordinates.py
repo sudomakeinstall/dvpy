@@ -21,7 +21,7 @@ class capture_coordinates(object):
     def update(self):
         self.m = sector_mask(self.shape, (self.y, self.x), self.radius)
         if self.mask == None:
-          self.mask = ax.imshow(self.m, alpha = 0.3)
+          self.mask = self.ax.imshow(self.m, alpha = 0.3)
         else:
           self.mask.set_data(self.m)
-        ax.figure.canvas.draw()
+        self.ax.figure.canvas.draw()
