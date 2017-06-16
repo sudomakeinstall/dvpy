@@ -20,6 +20,7 @@ from .subdivide_quadratic_bspline import *
 from .keep_largest_connected_component import *
 from .wrapped_phase_difference import *
 from .sector_mask import *
+from .capture_coordinates import *
 
 __all__ = [
           'complex_from_mag_and_phase',
@@ -47,4 +48,5 @@ __all__ = [
           'keep_largest_connected_component',
           'wrapped_phase_difference',
           'sector_mask',
+          'capture_coordinates',
           ]
