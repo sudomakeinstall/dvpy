@@ -1,4 +1,5 @@
 import numpy as np
+import pylab as plt
 from .sector_mask import sector_mask
 
 # https://stackoverflow.com/questions/25521120/store-mouse-click-event-coordinates-with-matplotlib
@@ -25,3 +26,14 @@ class capture_coordinates(object):
         else:
           self.mask.set_data(self.m)
         self.ax.figure.canvas.draw()
+
+def capture_coordinates_from_image(image):
+  fig, ax = plt.subplots(1, 1)
+  capture_object = capture_coordinates(ax, image)
+  cid = fig.canvas.mpl_connect('button_press_event', capture_object.onclick)
+  plt.gca().set_axis_off()
+  plt.gca().xaxis.set_major_locator(plt.NullLocator())
+  plt.gca().yaxis.set_major_locator(plt.NullLocator())
+  plt.show()
+  fig.canvas.mpl_disconnect(cid)
+  return capture_object

@@ -49,4 +49,5 @@ __all__ = [
           'wrapped_phase_difference',
           'sector_mask',
           'capture_coordinates',
+          'capture_coordinates_from_image',
           ]
