@@ -21,6 +21,7 @@ from .keep_largest_connected_component import *
 from .wrapped_phase_difference import *
 from .sector_mask import *
 from .capture_coordinates import *
+from .normalize import *
 
 __all__ = [
           'complex_from_mag_and_phase',
@@ -50,4 +51,5 @@ __all__ = [
           'sector_mask',
           'capture_coordinates',
           'capture_coordinates_from_image',
+          'normalize',
           ]
