@@ -1,26 +1,17 @@
 import numpy as np
-
-def helper_pop_and_return(l, n):
-  o = l.copy()
-  del o[n]
-  return o
+import dvpy as dv
 
 def bounding_box(array):
   """ 
-  Get the bounding box from an ndarray
+  Get the bounding box from an `ndarray`.
 
-  Parameters
-  ----------
-  array: array-like
-    An array-like object
+  :param array: The input array.
+  :type array: ndarray
 
-  Returns
-  -------
-  output: A list of tuples
-    The length of the list matches the number of dimensions of the input array.
-    The tuples each have length two.  The first and second elements of each
-    tuple represent the first and last index in that dimension containing a
-    value which evaluates to True.
+  :returns: A list of tuples.  `len(out) == array.ndim`; the tuples have length two and specify the first and last index in that dimension containing a value which evaluates to `True`.
+  :rtype: [(int, int), ...]
+
+  :raises: `ValueError` if all values are near zero.
   """
 
   if np.allclose(array, np.zeros(array.shape)):
@@ -35,6 +26,6 @@ def bounding_box(array):
 
   # Now deal with higher dimensional arrays
   all_indices = list(range(array.ndim))
-  any_all = [np.any(array, axis = tuple(helper_pop_and_return(all_indices, n))) for n in range(array.ndim)]
+  any_all = [np.any(array, axis = tuple(dv.pop_and_return(all_indices, n))) for n in range(array.ndim)]
   return [tuple(np.where(x)[0][[0, -1]]) for x in any_all]
 

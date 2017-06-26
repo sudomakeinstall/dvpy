@@ -1,55 +1,59 @@
-from .complex_from_mag_and_phase import *
-from .physical_coordinates import *
-from .tag_magnitudes import *
-from .displacement_field import *
-from .wrap_phase import *
-from .lagrangian_strain_tensor import *
-from .displacement_gradient_tensor import *
-from .determine_number_of_files import *
-from .crop_array import *
-from .save_interpolated_image import *
-from .geometry import *
-from .save_png import *
-from .latex_macro import *
 from .bounding_box import bounding_box
-from .crop_or_pad_to_target import *
-from .rescale_phase_siemens import *
-from .correct_nonuniform_illumination import *
-from .nii_vol_to_slices import *
-from .subdivide_quadratic_bspline import *
-from .keep_largest_connected_component import *
-from .wrapped_phase_difference import *
-from .sector_mask import *
 from .capture_coordinates import *
+from .complex_from_mag_and_phase import *
+from .correct_nonuniform_illumination import *
+from .crop_array import *
+from .crop_or_pad_to_target import *
+from .determine_number_of_files import *
+from .displacement_field import *
+from .displacement_gradient_tensor import *
+from .geometry import *
+from .keep_largest_connected_component import *
+from .lagrangian_strain_tensor import *
+from .latex_macro import *
+from .nii_vol_to_slices import *
 from .normalize import *
+from .physical_coordinates import *
+from .pop_and_return import *
+from .rescale_phase_siemens import *
+from .save_interpolated_image import *
+from .save_png import *
+from .sector_mask import *
+from .subdivide_quadratic_bspline import *
+from .tag_magnitudes import *
+from .wrapped_phase_difference import *
+from .wrap_phase import *
 
 __all__ = [
+          'bounding_box',
+          'capture_coordinates',
+          'capture_coordinates_from_image',
           'complex_from_mag_and_phase',
-          'physical_coordinates',
-          'tag_magnitudes',
-          'displacement_field',
-          'wrap_phase',
-          'lagrangian_strain_tensor',
-          'displacement_gradient_tensor',
-          'determine_number_of_files',
+          'correct_nonuniform_illumination',
           'crop_array',
+          'crop_or_pad',
+          'crop_or_pad_to_target',
+          'determine_number_of_files',
+          'displacement_field',
+          'displacement_gradient_tensor',
+          'keep_largest_connected_component',
+          'lagrangian_strain_tensor',
+          'latex_macro',
+          'nii_vol_to_slices',
+          'normalize',
+          'physical_coordinates',
+          'pop_and_return',
+          'rescale_phase_siemens',
           'save_interpolated_image',
+          'save_png',
+          'sector_mask',
+          'subdivide_quadratic_bspline',
+          'tag_magnitudes',
+          'wrapped_phase_difference',
+          'wrap_phase',
+
           'generate_circle',
           'project_point_onto_plane',
           'distance_from_point_to_plane',
           'distance_from_points_to_plane',
-          'latex_macro',
-          'bounding_box',
-          'save_png',
-          'crop_or_pad_to_target',
-          'rescale_phase_siemens',
-          'correct_nonuniform_illumination',
-          'nii_vol_to_slices',
-          'subdivide_quadratic_bspline',
-          'keep_largest_connected_component',
-          'wrapped_phase_difference',
-          'sector_mask',
-          'capture_coordinates',
-          'capture_coordinates_from_image',
-          'normalize',
           ]

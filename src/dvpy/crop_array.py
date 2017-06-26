@@ -4,19 +4,17 @@ def crop_array(array, origin, dim):
   """
   Crop an array-like given origin and dimensions
 
-  Parameters
-  ----------
-  array : array-like
-    Array to be cropped.
-  origin : tuple
-    Indices of starting point to be cropped
-  dim : tuple
-    Dimensions to crop array to
+  :param array: Array to be cropped.
+  :type array: array-like
 
-  Returns
-  -------
-  out : array-like
-    Cropped array
+  :param origin: Indices of starting point to be cropped
+  :type origin: tuple
+
+  :param dim: Dimensions to crop array to
+  :type dim: tuple
+
+  :returns: Cropped array
+  :rtype: array-like
   """
 
   start = np.array(origin)

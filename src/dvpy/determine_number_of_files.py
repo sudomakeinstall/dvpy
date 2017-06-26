@@ -5,18 +5,15 @@ def determine_number_of_files(directory, pattern):
   Determine how many files in a directory match a given pattern
   after substituting sequential integers starting from zero.
 
-  Parameters
-  ----------
-  directory: str
-    Base directory in which to look for files.
-  pattern: str
-    String pattern allowing a single digit substitution
-    e.g., "img_%d.png"%(0) ==> "img_0.png"
+  :param directory: Base directory in which to look for files.
+  :type directory: str
 
-  Returns
-    N : int
-    Number of files matching pattern sequentially, beginning with zero.
-  -------
+  :param pattern: String pattern allowing a single digit substitution
+    e.g., "img_%d.png"%(0) ==> "img_0.png"
+  :type pattern: str
+
+  :returns: Number of files matching pattern sequentially, beginning with zero.
+  :rtype: int
   """
 
   number_of_files = 0
