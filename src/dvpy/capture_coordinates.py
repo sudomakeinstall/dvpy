@@ -27,8 +27,10 @@ class capture_coordinates(object):
           self.mask.set_data(self.m)
         self.ax.figure.canvas.draw()
 
-def capture_coordinates_from_image(image):
+def capture_coordinates_from_image(image, title = None):
   fig, ax = plt.subplots(1, 1)
+  if title is not None:
+    plt.title(title)
   capture_object = capture_coordinates(ax, image)
   cid = fig.canvas.mpl_connect('button_press_event', capture_object.onclick)
   plt.gca().set_axis_off()
