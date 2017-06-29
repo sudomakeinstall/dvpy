@@ -16,6 +16,7 @@ from .normalize import *
 from .physical_coordinates import *
 from .pop_and_return import *
 from .rescale_phase_siemens import *
+from .rotate_2d_vector import *
 from .save_interpolated_image import *
 from .save_png import *
 from .sector_mask import *
@@ -44,6 +45,7 @@ __all__ = [
           'physical_coordinates',
           'pop_and_return',
           'rescale_phase_siemens',
+          'rotate_2d_vector',
           'save_interpolated_image',
           'save_png',
           'sector_mask',
