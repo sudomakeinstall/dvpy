@@ -13,7 +13,7 @@ def pop_and_return(l, n):
   :rtype: list
 
   :raises: `ValueError` if the index `n` is out of range.
-  :raises: `ValueError` if the list `l` is empty.
+           `ValueError` if the list `l` is empty.
   """
   o = l.copy()
   if (n >= len(l)) or (n < 0):

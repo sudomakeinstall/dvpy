@@ -1,3 +1,4 @@
+from .apply_affine_transform import *
 from .bounding_box import bounding_box
 from .capture_coordinates import *
 from .complex_from_mag_and_phase import *
@@ -27,6 +28,7 @@ from .wrapped_phase_difference import *
 from .wrap_phase import *
 
 __all__ = [
+          'apply_affine_transform',
           'bounding_box',
           'capture_coordinates',
           'capture_coordinates_from_image',
