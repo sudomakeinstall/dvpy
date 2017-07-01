@@ -7,6 +7,7 @@ from .crop_or_pad_to_target import *
 from .determine_number_of_files import *
 from .displacement_field import *
 from .displacement_gradient_tensor import *
+from .flip_axis import *
 from .geometry import *
 from .keep_largest_connected_component import *
 from .lagrangian_strain_tensor import *
@@ -37,6 +38,7 @@ __all__ = [
           'determine_number_of_files',
           'displacement_field',
           'displacement_gradient_tensor',
+          'flip_axis',
           'keep_largest_connected_component',
           'lagrangian_strain_tensor',
           'latex_macro',
