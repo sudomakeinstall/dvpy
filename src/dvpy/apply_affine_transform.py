@@ -13,7 +13,7 @@ def apply_affine_transform(array,
     :param array: Array to be transformed.
     :type array: 3-dimensional `ndarray`
 
-    :param transform_matrix: Transformation matrix with shape `(2, 3)`.
+    :param transform_matrix: Transformation matrix.
     :type array: `ndarray`
 
     :param channel_index: Axis corresponding to the RGB channel.
@@ -36,9 +36,6 @@ def apply_affine_transform(array,
     # 
     if array.ndim != 3:
       raise ValueError('Input array must have 3 dimensions.')
-
-    if transform_matrix.shape != (2, 3):
-      raise ValueError('Shape of transformation matrix must equal `(2, 3)`.')
 
     array = np.rollaxis(array, channel_index, 0)
     final_affine_matrix = transform_matrix[:2, :2] 
