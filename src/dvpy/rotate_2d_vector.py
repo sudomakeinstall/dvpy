@@ -1,7 +1,6 @@
 import numpy as np
+import dvpy as dv
 
 def rotate_2d_vector(vec, ang):
-  rot = np.array([[np.cos(ang), -np.sin(ang)],
-                  [np.sin(ang),  np.cos(ang)]])
-  return np.dot(rot, vec)
+  return np.dot(dv.rotation_matrix_from_angle(ang), vec)
 
