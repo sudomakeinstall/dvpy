@@ -59,7 +59,6 @@ __all__ = [
           'tag_magnitudes',
           'wrapped_phase_difference',
           'wrap_phase',
-
           'generate_circle',
           'project_point_onto_plane',
           'distance_from_point_to_plane',
