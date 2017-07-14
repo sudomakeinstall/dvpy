@@ -13,7 +13,7 @@ class capture_coordinates(object):
         self.mask = None
         self.m = None
         self.radius = int(np.min(image.shape) / 10)
-        if (x is not None & y is not None): self.update()
+        if ((x is not None) & (y is not None)): self.update()
 
     def onclick(self, event):
         self.x = event.xdata
