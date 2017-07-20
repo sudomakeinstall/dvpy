@@ -22,6 +22,7 @@ from .rotate_2d_vector import *
 from .rotation_matrix_from_angle import *
 from .save_interpolated_image import *
 from .save_png import *
+from .section_print import *
 from .sector_mask import *
 from .subdivide_quadratic_bspline import *
 from .tag_magnitudes import *
@@ -54,6 +55,7 @@ __all__ = [
           'rotate_2d_vector',
           'save_interpolated_image',
           'save_png',
+          'section_print',
           'sector_mask',
           'subdivide_quadratic_bspline',
           'tag_magnitudes',
