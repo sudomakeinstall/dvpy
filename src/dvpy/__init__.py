@@ -15,6 +15,7 @@ from .lagrangian_strain_tensor import *
 from .latex_macro import *
 from .nii_vol_to_slices import *
 from .normalize import *
+from .one_hot import *
 from .physical_coordinates import *
 from .pop_and_return import *
 from .rescale_phase_siemens import *
@@ -48,6 +49,7 @@ __all__ = [
           'latex_macro',
           'nii_vol_to_slices',
           'normalize',
+          'one_hot',
           'physical_coordinates',
           'pop_and_return',
           'rescale_phase_siemens',
