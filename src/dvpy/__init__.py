@@ -1,3 +1,4 @@
+from .aha_polar_plot import *
 from .apply_affine_transform import *
 from .bounding_box import bounding_box
 from .capture_coordinates import *
@@ -31,6 +32,7 @@ from .wrapped_phase_difference import *
 from .wrap_phase import *
 
 __all__ = [
+          'aha_polar_plot',
           'apply_affine_transform',
           'bounding_box',
           'capture_coordinates',
