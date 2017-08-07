@@ -1,4 +1,5 @@
 from .aha_polar_plot import *
+from .annotate_linear_regression import *
 from .polar_plot import *
 from .apply_affine_transform import *
 from .bounding_box import bounding_box
@@ -11,6 +12,7 @@ from .determine_number_of_files import *
 from .displacement_field import *
 from .displacement_gradient_tensor import *
 from .flip_axis import *
+from .format_p_value import *
 from .geometry import *
 from .keep_largest_connected_component import *
 from .lagrangian_strain_tensor import *
@@ -34,6 +36,7 @@ from .wrap_phase import *
 
 __all__ = [
           'aha_polar_plot',
+          'annotate_linear_regression',
           'polar_plot',
           'apply_affine_transform',
           'bounding_box',
@@ -48,6 +51,7 @@ __all__ = [
           'displacement_field',
           'displacement_gradient_tensor',
           'flip_axis',
+          'format_p_value',
           'keep_largest_connected_component',
           'lagrangian_strain_tensor',
           'latex_macro',
