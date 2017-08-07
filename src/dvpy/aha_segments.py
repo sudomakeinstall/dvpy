@@ -2,6 +2,7 @@ import pandas as pd
 
 def aha_segments():
   return pd.DataFrame([
+    [0 , 'G', ''      ],
     [1 , 'B', 'Ant'   ],
     [2 , 'B', 'AntSep'],
     [3 , 'B', 'InfSep'],
