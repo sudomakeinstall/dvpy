@@ -1,4 +1,5 @@
 from .aha_polar_plot import *
+from .aha_segments import *
 from .annotate_linear_regression import *
 from .polar_plot import *
 from .apply_affine_transform import *
@@ -36,6 +37,7 @@ from .wrap_phase import *
 
 __all__ = [
           'aha_polar_plot',
+          'aha_segments',
           'annotate_linear_regression',
           'polar_plot',
           'apply_affine_transform',
