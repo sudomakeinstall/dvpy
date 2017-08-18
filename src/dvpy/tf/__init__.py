@@ -5,8 +5,12 @@ from .rad2deg import *
 from .run_and_print import *
 from .wrapped_phase_difference import *
 from .wrapped_phase_difference_loss import *
+from .unet import conv_bn_relu_1x, conv_bn_relu, get_unet
 
 __all__ = [
+           'conv_bn_relu_1x',
+           'conv_bn_relu',
+           'get_unet',
            'deg2rad',
            'e',
            'pi',
