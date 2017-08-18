@@ -19,6 +19,7 @@ from .geometry import *
 from .keep_largest_connected_component import *
 from .lagrangian_strain_tensor import *
 from .latex_macro import *
+from .mask_to_transform import *
 from .nii_vol_to_slices import *
 from .normalize import *
 from .one_hot import *
@@ -59,6 +60,7 @@ __all__ = [
           'keep_largest_connected_component',
           'lagrangian_strain_tensor',
           'latex_macro',
+          'mask_to_transform',
           'nii_vol_to_slices',
           'normalize',
           'one_hot',
