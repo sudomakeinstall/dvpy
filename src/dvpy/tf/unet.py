@@ -60,6 +60,8 @@ def conv_bn_relu(nb_filter, kernel_size, subsample=(1,), dimension = 2, depth = 
     return f
 
 def get_unet(dim, num_output_classes, conv_depth, stage, dimension = 2, weight_decay = 1e-4):
+    if np.isscalar(dim):
+      dim = (dim,)*dimension
     kernel_size=(3,)*dimension
     pool_size=(2,)*dimension
 
@@ -113,7 +115,7 @@ def get_unet(dim, num_output_classes, conv_depth, stage, dimension = 2, weight_d
         conv13 = Activation(activation='softmax')(conv12)
 
         # segmentation loss
-        seg_pred = Reshape((dim,)*dimension + (num_output_classes,), name = 'img_sg%d'%(stage))(conv13)
+        seg_pred = Reshape(dim + (num_output_classes,), name = 'img_sg%d'%(stage))(conv13)
         return pool5, final_feature, seg_pred
     return f
 
