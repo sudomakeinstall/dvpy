@@ -6,16 +6,19 @@ from keras.layers import Input
 
 def test_get_unet():
 
-  model_inputs = [Input((128, 128, 1))]
+  for d in [2, 3]:
+    shape = (128,)*d + (1,)
+    print(shape)
+    model_inputs = [Input(shape)]
 
-  _, _, output = dvpy.tf.get_unet(128, 5, 64, 0)(model_inputs[0])
+    _, _, output = dvpy.tf.get_unet(128, 5, 64, 0, dimension = d)(model_inputs[0])
 
-  model_outputs = [output]
+    model_outputs = [output]
 
-  model = Model(inputs = model_inputs,
-                outputs = model_outputs)
-  opt = Adam(lr = 1e-3)
+    model = Model(inputs = model_inputs,
+                  outputs = model_outputs)
+    opt = Adam(lr = 1e-3)
 
-  model.compile(optimizer = opt,
-                loss = 'categorical_crossentropy',
-               )
+    model.compile(optimizer = opt,
+                  loss = 'categorical_crossentropy',
+                 )
