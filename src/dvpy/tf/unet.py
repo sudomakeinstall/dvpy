@@ -111,7 +111,7 @@ def get_unet(dim, num_output_classes, conv_depth, stage, dimension = 2, weight_d
                         kernel_regularizer = l2(weight_decay),
                         bias_regularizer = l2(weight_decay),
                        )(final_feature)
-        conv12 = Reshape((dim**dimension, num_output_classes))(conv11)
+        conv12 = Reshape((np.product(dim), num_output_classes))(conv11)
         conv13 = Activation(activation='softmax')(conv12)
 
         # segmentation loss
