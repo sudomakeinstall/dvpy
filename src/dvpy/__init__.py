@@ -3,6 +3,7 @@ from .aha_segments import *
 from .annotate_linear_regression import *
 from .polar_plot import *
 from .apply_affine_transform import *
+from .binarize_array import *
 from .bounding_box import bounding_box
 from .capture_coordinates import *
 from .complex_from_mag_and_phase import *
@@ -41,6 +42,7 @@ __all__ = [
           'annotate_linear_regression',
           'polar_plot',
           'apply_affine_transform',
+          'binarize_array',
           'bounding_box',
           'capture_coordinates',
           'capture_coordinates_from_image',
