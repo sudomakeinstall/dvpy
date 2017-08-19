@@ -34,6 +34,7 @@ from .section_print import *
 from .sector_mask import *
 from .subdivide_quadratic_bspline import *
 from .tag_magnitudes import *
+from .tokenize_path import *
 from .wrapped_phase_difference import *
 from .wrap_phase import *
 
@@ -75,6 +76,7 @@ __all__ = [
           'sector_mask',
           'subdivide_quadratic_bspline',
           'tag_magnitudes',
+          'tokenize_path',
           'wrapped_phase_difference',
           'wrap_phase',
           'generate_circle',
