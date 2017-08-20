@@ -1,4 +1,5 @@
 from .add_horizontal_limits import *
+from .add_trendline import *
 from .aha_polar_plot import *
 from .aha_segments import *
 from .annotate_linear_regression import *
@@ -41,6 +42,7 @@ from .wrap_phase import *
 
 __all__ = [
           'add_horizontal_limits',
+          'add_trendline',
           'aha_polar_plot',
           'aha_segments',
           'annotate_linear_regression',
