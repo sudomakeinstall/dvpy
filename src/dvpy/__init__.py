@@ -2,7 +2,10 @@ from .add_horizontal_limits import *
 from .add_trendline import *
 from .aha_polar_plot import *
 from .aha_segments import *
+from .annotate_bland_altman import *
+from .annotate_iqr import *
 from .annotate_linear_regression import *
+from .annotate_mu_sd import *
 from .polar_plot import *
 from .apply_affine_transform import *
 from .binarize_array import *
@@ -45,7 +48,10 @@ __all__ = [
           'add_trendline',
           'aha_polar_plot',
           'aha_segments',
+          'annotate_bland_altman',
+          'annotate_iqr',
           'annotate_linear_regression',
+          'annotate_mu_sd',
           'polar_plot',
           'apply_affine_transform',
           'binarize_array',
