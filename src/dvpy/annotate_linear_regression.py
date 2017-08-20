@@ -2,7 +2,7 @@
 from scipy.stats import linregress
 import dvpy as dv
 
-def annotate_linear_regression(x, y):
+def annotate_linear_regression(x, y, x_label = 'x', y_label = 'y'):
   reg = linregress(x, y)
   m = reg[0]
   b = reg[1]
@@ -10,5 +10,5 @@ def annotate_linear_regression(x, y):
   p = reg[3]
   p = dv.format_p_value(p)
   
-  return '$y = %.2f x + %.2f$\n$R = %.2f$ ($%s$)'%(m, b, r, p)
+  return '$%s = %.2f %s + %.2f$\n$R = %.2f$ ($%s$)'%(y_label, m, x_label, b, r, p)
 
