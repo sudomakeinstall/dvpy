@@ -1,5 +1,6 @@
 import keras.backend as K
 import numpy as np
+import collections as cl
 
 def number_of_model_weights(model):
 
@@ -9,5 +10,6 @@ def number_of_model_weights(model):
   non_trainable_count = int(
     np.sum([K.count_params(p) for p in set(model.non_trainable_weights)]))
 
-  return (trainable_count, non_trainable_count)
+  Weights = cl.namedtuple('Weights', ['trainable', 'non_trainable'])
+  return Weights(trainable = trainable_count, non_trainable = non_trainable_count)
 
