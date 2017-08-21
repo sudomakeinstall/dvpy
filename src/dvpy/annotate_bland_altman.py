@@ -12,16 +12,17 @@ def annotate_bland_altman(x, y, x_label = None, y_label = None):
   y_sd = np.std( y)
 
   if x_label is not None and y_label is not None:
-    x_label = ' (%s) '%(x_label)
-    y_label = ' (%s) '%(y_label)
+    x_label = '%s: '%(x_label)
+    y_label = '%s: '%(y_label)
   else:
     x_label = ''
     y_label = ''
 
-  annot  = '%s%s'%(dv.annotate_mu_sd(x), x_label)
-  annot += ' vs '
-  annot += '%s%s'%(dv.annotate_mu_sd(y), y_label)
-  annot += '\n($%s$)'%(p)
+  annot  = '%s%s'%(x_label, dv.annotate_mu_sd(x))
+  annot += '\n'
+  annot += '%s%s'%(y_label, dv.annotate_mu_sd(y))
+  annot += '\n'
+  annot += '($%s$)'%(p)
 
   return annot
  
