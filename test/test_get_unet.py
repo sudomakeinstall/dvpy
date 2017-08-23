@@ -22,3 +22,5 @@ def test_get_unet():
     model.compile(optimizer = opt,
                   loss = 'categorical_crossentropy',
                  )
+
+    print(dvpy.tf.number_of_model_weights(model))
