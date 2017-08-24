@@ -8,7 +8,7 @@ def test_get_unet():
 
   for d in [2, 3]:
     shape = (128,)*d + (1,)
-    print(shape)
+
     model_inputs = [Input(shape)]
 
     _, _, output = dvpy.tf.get_unet(128, 5, 64, 0, dimension = d)(model_inputs[0])

@@ -60,9 +60,18 @@ def conv_bn_relu(nb_filter, kernel_size, subsample=(1,), dimension = 2, depth = 
         return inputs[depth]
     return f
 
-def get_unet(dim, num_output_classes, conv_depth, stage, dimension = 2, weight_decay = 1e-4, depth = 3):
+def get_unet(dim, num_output_classes, conv_depth, stage, dimension = 2, weight_decay = 1e-4, unet_depth = 3):
+
   if np.isscalar(dim):
     dim = (dim,)*dimension
+  else:
+    assert(len(dim) == dimension)
+
+  if np.isscalar(conv_depth):
+    conv_depth = [conv_depth] * (2*unet_depth + 1)
+  else:
+    assert(len(conv_depth) == 2*unet_depth + 1)
+
   kernel_size=(3,)*dimension
   pool_size=(2,)*dimension
 
@@ -76,21 +85,21 @@ def get_unet(dim, num_output_classes, conv_depth, stage, dimension = 2, weight_d
     ds = []
     us = []
 
-    for i in range(depth):
+    for i in range(unet_depth):
       if 0 == i:
-        levels += [conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(input_layer)]
+        levels += [conv_bn_relu(conv_depth[i], kernel_size, dimension = dimension)(input_layer)]
       else:
-        levels += [conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(ds[-1])]
+        levels += [conv_bn_relu(conv_depth[i], kernel_size, dimension = dimension)(ds[-1])]
       ds += [MaxPooling(pool_size=pool_size)(levels[-1])]
 
-    for i in range(depth):
+    for i in range(unet_depth):
       if 0 == i:
-        levels += [conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(ds[-1])]
+        levels += [conv_bn_relu(conv_depth[i+unet_depth], kernel_size, dimension = dimension)(ds[-1])]
       else:
-        levels += [conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(us[-1])]
-      us += [concatenate([UpSampling(size=pool_size)(levels[-1]), levels[depth - i - 1]])]
+        levels += [conv_bn_relu(conv_depth[i+unet_depth], kernel_size, dimension = dimension)(us[-1])]
+      us += [concatenate([UpSampling(size=pool_size)(levels[-1]), levels[unet_depth - i - 1]])]
 
-    final_feature = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(us[-1])
+    final_feature = conv_bn_relu(conv_depth[unet_depth*2], kernel_size, dimension = dimension)(us[-1])
     conv11 = Conv(
                   num_output_classes,
                   kernel_size,
