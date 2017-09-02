@@ -12,6 +12,7 @@ from .binarize_array import *
 from .bounding_box import bounding_box
 from .capture_coordinates import *
 from .complex_from_mag_and_phase import *
+from .copy_nii import *
 from .correct_nonuniform_illumination import *
 from .crop_array import *
 from .crop_or_pad_to_target import *
@@ -59,6 +60,7 @@ __all__ = [
           'capture_coordinates',
           'capture_coordinates_from_image',
           'complex_from_mag_and_phase',
+          'copy_nii',
           'correct_nonuniform_illumination',
           'crop_array',
           'crop_or_pad',
