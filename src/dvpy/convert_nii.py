@@ -3,7 +3,7 @@ import numpy as np
 import dvpy as dv
 import skimage.exposure as ex
 
-def convert_nii(im, new_dtype = 'uint16'):
+def convert_nii(im, new_dtype):
   d, a, h = dv.copy_nii(im, return_components = True)
   d = np.nan_to_num(d)
   d = ex.rescale_intensity(d, in_range = 'image', out_range = new_dtype)
