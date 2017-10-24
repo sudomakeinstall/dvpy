@@ -5,6 +5,7 @@ import numpy as np
 from keras import backend as K
 
 # Internal
+import dvpy as dv
 from . import IteratorBase
 
 class NumpyArrayIterator(IteratorBase):
@@ -108,7 +109,7 @@ class NumpyArrayIterator(IteratorBase):
 #                aug_ang = 0.0
 
             # Normalize the *individual* image from zero to one.
-            batch_x[i] = ut.normalize_image(x)
+            batch_x[i] = dv.normalize_image(x)
             batch_y[i] = label
 
         ##
