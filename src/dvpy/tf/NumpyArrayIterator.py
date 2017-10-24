@@ -17,7 +17,6 @@ class NumpyArrayIterator(IteratorBase):
                  batch_size=32,
                  shuffle=False,
                  seed=None,
-                 dim_ordering='default',
                  save_to_dir=None,
                  save_prefix='',
                  save_format='jpeg',
@@ -34,17 +33,17 @@ class NumpyArrayIterator(IteratorBase):
                  hourglass_depth = None,
                 ):
 
+        if K.image_dim_ordering() != 'tf':
+            raise Exception('Only tensorflow backend is supported.')
+
         if len(X) != len(y):
 
             raise Exception('X (images tensor) and y (labels) '
                             'should have the same length. '
                             'Found: X.shape = %s, y.shape = %s' % (np.asarray(X).shape, np.asarray(y).shape))
-        if dim_ordering == 'default':
-            dim_ordering = K.image_dim_ordering()
         self.X = X
         self.y = y
         self.image_data_generator = image_data_generator
-        self.dim_ordering = dim_ordering
         self.save_to_dir = save_to_dir
         self.save_prefix = save_prefix
         self.save_format = save_format
