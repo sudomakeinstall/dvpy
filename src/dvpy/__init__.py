@@ -59,6 +59,7 @@ __all__ = [
           'annotate_mu_sd',
           'polar_plot',
           'apply_affine_transform',
+          'apply_affine_transform_channelwise',
           'binarize_array',
           'bounding_box',
           'capture_coordinates',

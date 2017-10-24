@@ -1,13 +1,43 @@
 import dvpy as dv
 import numpy as np
 import pytest as pt
-from scipy.misc import face
+from scipy.misc import ascent, face
 import pylab as plt
 
 def test_apply_affine_transform():
+  ##
+  ## 2D (Grayscale)
+  ##
+
+  test = ascent()
   I = np.array([[1, 0, 0], [0, 1, 0]])
+  S = np.array([[2, 0, 0], [0, 2, 0]])
+  T = np.array([[1, 0, test.shape[0]//2],
+                [0, 1, test.shape[1]//2]])
+
+  plt.imshow(dv.apply_affine_transform(test, I))
+  plt.show()
+
+  plt.imshow(dv.apply_affine_transform(test, S))
+  plt.show()
+
+  plt.imshow(dv.apply_affine_transform(test, T))
+  plt.show()
+
+  ##
+  ## 2D (Color)
+  ##
 
   test = face()
-  translate = np.array([[1, 0, test.shape[0]//2], [0, 1, test.shape[1]//2]])
-  plt.imshow(dv.apply_affine_transform(test, translate, channel_index=2))
+  T = np.array([[1, 0, test.shape[0]//2],
+                [0, 1, test.shape[1]//2]])
+
+  plt.imshow(dv.apply_affine_transform_channelwise(test, I, channel_index = 2))
   plt.show()
+
+  plt.imshow(dv.apply_affine_transform_channelwise(test, S, channel_index = 2))
+  plt.show()
+
+  plt.imshow(dv.apply_affine_transform_channelwise(test, T, channel_index = 2))
+  plt.show()
+
