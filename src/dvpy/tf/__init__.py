@@ -8,6 +8,7 @@ from .wrapped_phase_difference import *
 from .wrapped_phase_difference_loss import *
 from .unet import conv_bn_relu_1x, conv_bn_relu, get_unet
 from .IteratorBase import *
+from .NumpyArrayIterator import *
 
 __all__ = [
            'conv_bn_relu_1x',
@@ -22,4 +23,5 @@ __all__ = [
            'wrapped_phase_difference',
            'wrapped_phase_difference_loss',
            'IteratorBase',
+           'NumpyArrayIterator',
           ]
