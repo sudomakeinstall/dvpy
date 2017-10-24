@@ -22,7 +22,7 @@ class NumpyArrayIterator(IteratorBase):
                  shape = None,
                  input_channels = None,
                  output_channels = None,
-                 predict = False,
+                 augment = False,
                 ):
 
         if K.image_dim_ordering() != 'tf':
@@ -41,7 +41,7 @@ class NumpyArrayIterator(IteratorBase):
         self.shape = shape
         self.input_channels = input_channels
         self.output_channels = output_channels
-        self.predict = predict
+        self.augment = augment
         super(NumpyArrayIterator, self).__init__(X.shape[0], batch_size, shuffle, seed)
 
 
@@ -84,12 +84,12 @@ class NumpyArrayIterator(IteratorBase):
                 # ...and convert the path to a one-hot encoded image.
                 label = self.output_adapter(label)
 
-#            # If *training*, we want to augment the data.
-#            # If *testing*, we do not.
-#            if not self.predict:
-#                x, label, aug_ang = self.image_data_generator.random_transform(x.astype('float32'), label.astype('float32'))
-#            else:
-#                aug_ang = 0.0
+            # If *training*, we want to augment the data.
+            # If *testing*, we do not.
+            if self.augment:
+                x, label, aug_ang = self.image_data_generator.random_transform(x.astype('float32'), label.astype('float32'))
+            else:
+                aug_ang = 0.0
 
             # Normalize the *individual* image from zero to one.
             batch_x[i] = dv.normalize_image(x)
