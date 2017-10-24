@@ -6,6 +6,15 @@ import numpy as np
 
 class IteratorBase(object):
 
+    __slots__ = ['N',
+                 'batch_size',
+                 'shuffle',
+                 'batch_index',
+                 'total_batches_seen',
+                 'lock',
+                 'index_generator',
+                ]
+
     def __init__(self, N, batch_size, shuffle, seed):
         self.N = N 
         self.batch_size = batch_size
