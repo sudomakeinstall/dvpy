@@ -4,6 +4,8 @@ import threading
 # Third Party
 import numpy as np
 
+# Internal
+
 class IteratorBase(object):
 
     __slots__ = ['N',

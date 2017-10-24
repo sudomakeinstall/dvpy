@@ -1,6 +1,11 @@
+# System
+import collections as cl
+
+# Third Party
 import keras.backend as K
 import numpy as np
-import collections as cl
+
+# Internal
 
 def number_of_model_weights(model):
 

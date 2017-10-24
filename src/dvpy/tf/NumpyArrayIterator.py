@@ -5,9 +5,9 @@ import numpy as np
 from keras import backend as K
 
 # Internal
-import dvpy.tf
+from . import IteratorBase
 
-class NumpyArrayIterator(dvpy.tf.IteratorBase):
+class NumpyArrayIterator(IteratorBase):
 
     def __init__(self,
                  X,

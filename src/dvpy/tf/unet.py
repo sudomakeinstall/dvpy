@@ -1,3 +1,5 @@
+# System
+
 # Third Party
 from keras.regularizers import l2
 from keras.initializers import Orthogonal
@@ -15,8 +17,6 @@ import numpy as np
 import tensorflow as tf
 
 # Internal
-import dvpy as dv
-import dvpy.tf
 
 conv_dict = {1: Conv1D,
              2: Conv2D,
@@ -117,63 +117,3 @@ def get_unet(dim, num_output_classes, conv_depth, stage, dimension = 2, weight_d
     return ds[-1], final_feature, seg_pred
   return f
 
-#def get_unet(dim, num_output_classes, conv_depth, stage, dimension = 2, weight_decay = 1e-4):
-#    if np.isscalar(dim):
-#      dim = (dim,)*dimension
-#    kernel_size=(3,)*dimension
-#    pool_size=(2,)*dimension
-#
-#    MaxPooling = max_pooling_dict[dimension]
-#    UpSampling = up_sampling_dict[dimension]
-#    Conv = conv_dict[dimension]
-#
-#    def f(input_layer):
-#        #
-#        level1 = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(input_layer)
-#        pool1 = MaxPooling(pool_size=pool_size)(level1)
-#        #
-#        level2 = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(pool1)
-#        pool2 = MaxPooling(pool_size=pool_size)(level2)
-#        #
-#        level3 = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(pool2)
-#        pool3 = MaxPooling(pool_size=pool_size)(level3)
-#        #
-#        level4 = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(pool3)
-#        pool4 = MaxPooling(pool_size=pool_size)(level4)
-#        #
-#        level5 = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(pool4)
-#        pool5 = MaxPooling(pool_size=pool_size)(level5)
-#        #
-#        level6 = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(pool5)
-#        up6 = concatenate([UpSampling(size=pool_size)(level6), level5])
-#        #
-#        level7 = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(up6)
-#        up7 = concatenate([UpSampling(size=pool_size)(level7), level4])
-#        #
-#        level8 = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(up7)
-#        up8 = concatenate([UpSampling(size=pool_size)(level8), level3])
-#        #
-#        level9 = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(up8)
-#        up9 = concatenate([UpSampling(size=pool_size)(level9), level2])
-#        #
-#        level10 = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(up9)
-#        up10 = concatenate([UpSampling(size=pool_size)(level10), level1])
-#        #
-#        final_feature = conv_bn_relu(conv_depth, kernel_size, dimension = dimension)(up10)
-#        conv11 = Conv(
-#                        num_output_classes,
-#                        kernel_size,
-#                        padding='same',
-#                        activation='linear',
-#                        kernel_initializer='orthogonal',
-#                        kernel_regularizer = l2(weight_decay),
-#                        bias_regularizer = l2(weight_decay),
-#                       )(final_feature)
-#        conv12 = Reshape((np.product(dim), num_output_classes))(conv11)
-#        conv13 = Activation(activation='softmax')(conv12)
-#
-#        # segmentation loss
-#        seg_pred = Reshape(dim + (num_output_classes,), name = 'img_sg%d'%(stage))(conv13)
-#        return pool5, final_feature, seg_pred
-#    return f
-#

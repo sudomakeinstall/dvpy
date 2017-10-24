@@ -1,6 +1,10 @@
-import tensorflow as tf
-import dvpy.tf
+# Standard
+
+# Third Party
 import keras.backend as K
+
+# Internal
+import dvpy.tf
 
 def wrapped_phase_difference_loss(y_true, y_pred):
   diff = dvpy.tf.wrapped_phase_difference(y_true, y_pred)
