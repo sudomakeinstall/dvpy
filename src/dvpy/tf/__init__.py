@@ -7,6 +7,7 @@ from .run_and_print import *
 from .wrapped_phase_difference import *
 from .wrapped_phase_difference_loss import *
 from .unet import conv_bn_relu_1x, conv_bn_relu, get_unet
+from .IteratorBase import *
 
 __all__ = [
            'conv_bn_relu_1x',
@@ -20,4 +21,5 @@ __all__ = [
            'run_and_print',
            'wrapped_phase_difference',
            'wrapped_phase_difference_loss',
+           'IteratorBase',
           ]
