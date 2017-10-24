@@ -32,7 +32,7 @@ class IteratorBase(object):
     def _flow_index(self, N, batch_size=32, shuffle=False, seed=None):
         # ensure self.batch_index is 0
         self.reset()
-        while 1:
+        while True:
             if self.batch_index == 0:
                 index_array = np.arange(N)
                 if shuffle:
@@ -40,7 +40,9 @@ class IteratorBase(object):
                         np.random.seed(seed + self.total_batches_seen)
                     index_array = np.random.permutation(N)
 
-            current_index = (self.batch_index * batch_size) % N 
+            current_index = (self.batch_index * batch_size) % N
+            # Should this be >, rather than >=?
+            # https://github.com/tensorflow/tensorflow/blob/r1.2/tensorflow/contrib/keras/python/keras/preprocessing/image.py#L788
             if N >= current_index + batch_size:
                 current_batch_size = batch_size
                 self.batch_index += 1
@@ -55,8 +57,4 @@ class IteratorBase(object):
         # needed if we want to do something like:
         # for x, y in data_gen.flow(...):
         return self
-
-    def __next__(self, *args, **kwargs):
-        # ?
-        return self.next(*args, **kwargs)
 
