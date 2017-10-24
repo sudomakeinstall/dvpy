@@ -60,3 +60,7 @@ class IteratorBase(object):
         # for x, y in data_gen.flow(...):
         return self
 
+    def __next__(self, *args, **kwargs):
+        # self.next must be defined in the child class.
+        return self.next(*args, **kwargs)
+ 

@@ -120,4 +120,3 @@ class NumpyArrayIterator(IteratorBase):
 
         return (inputs, outputs,)
 
-  
