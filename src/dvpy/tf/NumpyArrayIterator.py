@@ -17,20 +17,12 @@ class NumpyArrayIterator(IteratorBase):
                  batch_size=32,
                  shuffle=False,
                  seed=None,
-                 save_to_dir=None,
-                 save_prefix='',
-                 save_format='jpeg',
                  input_adapter = None,
                  output_adapter = None,
                  shape = None,
                  input_channels = None,
                  output_channels = None,
                  predict = False,
-                 view_predict = False,
-                 output_views = None,
-                 view_opt = None,
-                 get_view_type = None,
-                 hourglass_depth = None,
                 ):
 
         if K.image_dim_ordering() != 'tf':
@@ -44,20 +36,12 @@ class NumpyArrayIterator(IteratorBase):
         self.X = X
         self.y = y
         self.image_data_generator = image_data_generator
-        self.save_to_dir = save_to_dir
-        self.save_prefix = save_prefix
-        self.save_format = save_format
         self.input_adapter = input_adapter
         self.output_adapter = output_adapter
         self.shape = shape
         self.input_channels = input_channels
         self.output_channels = output_channels
         self.predict = predict
-        self.view_predict = view_predict
-        self.output_views = output_views
-        self.view_opt = view_opt
-        self.get_view_type = get_view_type
-        self.hourglass_depth = hourglass_depth
         super(NumpyArrayIterator, self).__init__(X.shape[0], batch_size, shuffle, seed)
 
 
