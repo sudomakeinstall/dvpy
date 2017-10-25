@@ -44,6 +44,7 @@ from .sector_mask import *
 from .subdivide_quadratic_bspline import *
 from .tag_magnitudes import *
 from .tokenize_path import *
+from .transform_matrix_offset_center import *
 from .wrapped_phase_difference import *
 from .wrap_phase import *
 from .normalize_image import *
@@ -95,6 +96,8 @@ __all__ = [
           'subdivide_quadratic_bspline',
           'tag_magnitudes',
           'tokenize_path',
+          'transform_full_matrix_offset_center',
+          'transform_partial_matrix_offset_center',
           'wrapped_phase_difference',
           'wrap_phase',
           'generate_circle',

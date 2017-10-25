@@ -15,13 +15,13 @@ def test_apply_affine_transform():
   T = np.array([[1, 0, test.shape[0]//2],
                 [0, 1, test.shape[1]//2]])
 
-  plt.imshow(dv.apply_affine_transform(test, I))
+  plt.imshow(dv.apply_affine_transform(test, dv.transform_partial_matrix_offset_center(I, test.shape)))
   plt.show()
 
-  plt.imshow(dv.apply_affine_transform(test, S))
+  plt.imshow(dv.apply_affine_transform(test, dv.transform_partial_matrix_offset_center(S, test.shape)))
   plt.show()
 
-  plt.imshow(dv.apply_affine_transform(test, T))
+  plt.imshow(dv.apply_affine_transform(test, dv.transform_partial_matrix_offset_center(T, test.shape)))
   plt.show()
 
   ##
