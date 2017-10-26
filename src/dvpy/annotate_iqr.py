@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 
 def annotate_iqr(x):
   x25 = np.percentile(x, 25)

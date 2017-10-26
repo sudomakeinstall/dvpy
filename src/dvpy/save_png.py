@@ -1,5 +1,10 @@
+# System
+
+# Third Party
 import png
 import numpy as np
+
+# Internal
 
 def save_png(image, file_name, bitdepth = 16, normalize = True):
     f = open(file_name, 'wb')

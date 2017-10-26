@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 
 def crop_array(array, origin, dim):
   """

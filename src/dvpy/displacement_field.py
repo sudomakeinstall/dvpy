@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 from .wrap_phase import wrap_phase
 
 def displacement_field(dim, center, mag = 1.0, rot = 0.0):

@@ -1,5 +1,10 @@
+# System
+
+# Third Party
 import numpy as np
 from skimage.morphology import label
+
+# Internal
 
 def keep_largest_connected_component(image):
   if np.sum(image) == 0: return image

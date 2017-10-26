@@ -1,5 +1,9 @@
+# System
 
+# Third Party
 from scipy.stats import linregress
+
+# Internal
 import dvpy as dv
 
 def annotate_linear_regression(x, y, x_label = 'x', y_label = 'y'):

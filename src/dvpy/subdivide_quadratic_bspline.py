@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 
 def subdivide_quadratic_bspline(points):
 

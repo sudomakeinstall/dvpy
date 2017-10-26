@@ -1,5 +1,10 @@
+# System
+
+# Third Party
 import numpy as np
 import keras.utils.np_utils as k
+
+# Internal
 
 def one_hot(image, num_classes):
   """

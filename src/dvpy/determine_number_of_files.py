@@ -1,4 +1,9 @@
+# System
 import os
+
+# Third Party
+
+# Internal
 
 def determine_number_of_files(directory, pattern):
   """

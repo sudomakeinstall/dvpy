@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 
 def displacement_gradient_tensor(x, y):
   (dx_dx, dx_dy) = np.gradient(x)

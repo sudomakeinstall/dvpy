@@ -1,5 +1,10 @@
+# System
+
+# Third Party
 import numpy as np
 from skimage.filters import gaussian
+
+# Internal
 
 def correct_nonuniform_illumination(img, percentile = 25, sigma = 10):
   """

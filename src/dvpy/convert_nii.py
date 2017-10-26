@@ -1,7 +1,12 @@
+# System
+
+# Third Party
 import nibabel as nb
 import numpy as np
-import dvpy as dv
 import skimage.exposure as ex
+
+# Internal
+import dvpy as dv
 
 def convert_nii(im, new_dtype, rescale = False):
   d, a, h = dv.copy_nii(im, return_components = True)

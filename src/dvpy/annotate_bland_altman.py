@@ -1,6 +1,11 @@
-import dvpy as dv
+# System
+
+# Third Party
 from scipy.stats import ttest_rel
 import numpy as np
+
+# Internal
+import dvpy as dv
 
 def annotate_bland_altman(x, y, x_label = None, y_label = None):
   p = ttest_rel(x, y)[1]

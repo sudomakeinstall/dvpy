@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 import dvpy as dv
 
 def bounding_box(array):

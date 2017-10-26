@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 from .geometry import distance_from_points_to_plane
 
 def tag_magnitudes(x, y, t, T1 = 850, flip_angle = np.pi / 4, tag_rotation = 0.0):

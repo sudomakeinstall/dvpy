@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 
 def crop_or_pad(array, target, value = 0):
     """

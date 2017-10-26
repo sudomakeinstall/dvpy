@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 
 # https://stackoverflow.com/questions/18352973/mask-a-circular-sector-in-a-numpy-array#41743189
 def sector_mask(shape,centre,radius,angle_range=(0, np.pi*2),degrees=False):

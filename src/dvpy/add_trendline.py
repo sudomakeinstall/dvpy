@@ -1,5 +1,9 @@
+# System
 
+# Third Party
 from scipy.stats import linregress
+
+# Internal
 
 def add_trendline(ax, x, y, linestyle = '-', color = 'black'):
 

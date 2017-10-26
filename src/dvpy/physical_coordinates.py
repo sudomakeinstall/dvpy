@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 
 def physical_coordinates(extent, spacing = (1, 1), origin = (0, 0)):
   (nx, ny) = extent

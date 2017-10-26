@@ -1,6 +1,10 @@
-import matplotlib.pyplot as plt
+# System
 
+# Third Party
+import matplotlib.pyplot as plt
 import numpy as np
+
+# Internal
 
 def aha_polar_plot(ax, B, E, A, P,
                    color_mapper,

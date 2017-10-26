@@ -1,5 +1,10 @@
+# System
+
+# Third Party
 import numpy as np
 import numpy.linalg as la
+
+# Internal
 
 def project_point_onto_line(point, line_origin, line_vector):
   point_n = point - line_origin

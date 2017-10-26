@@ -1,5 +1,10 @@
+# System
+
+# Third Party
 import nibabel as nb
 import numpy as np
+
+# Internal
 
 def copy_nii(image, return_components = False):
   d = image.get_data().copy()

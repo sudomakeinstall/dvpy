@@ -1,5 +1,10 @@
+# System
+
+# Third Party
 import numpy as np
 import pylab as plt
+
+# Internal
 from .sector_mask import sector_mask
 
 # https://stackoverflow.com/questions/25521120/store-mouse-click-event-coordinates-with-matplotlib

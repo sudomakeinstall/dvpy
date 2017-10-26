@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import pylab as plt
+
+# Internal
 
 def save_interpolated_image(array, fileName, colormap = 'gray'):
   plt.gca().set_axis_off()

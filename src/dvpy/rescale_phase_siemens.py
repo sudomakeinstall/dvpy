@@ -1,4 +1,9 @@
+# System
+
+# Third Party
 import numpy as np
+
+# Internal
 
 def rescale_phase_siemens(x):
   x = x.astype(np.float64)

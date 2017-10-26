@@ -1,6 +1,10 @@
-import matplotlib.pyplot as plt
+# System
 
+# Third Party
+import matplotlib.pyplot as plt
 import numpy as np
+
+# Internal
 
 def polar_plot(ax, data, offsets = None,
                color_mapper = None,
