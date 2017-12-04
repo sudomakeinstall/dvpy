@@ -23,6 +23,7 @@ from .determine_number_of_files import *
 from .displacement_field import *
 from .displacement_gradient_tensor import *
 from .euler_poincare_characteristic import *
+from .fit_plane import *
 from .flip_axis import *
 from .format_p_value import *
 from .geometry import *
@@ -77,6 +78,7 @@ __all__ = [
           'displacement_field',
           'displacement_gradient_tensor',
           'euler_poincare_characteristic',
+          'fit_plane',
           'flip_axis',
           'format_p_value',
           'keep_largest_connected_component',
