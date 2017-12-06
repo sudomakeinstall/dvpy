@@ -1,0 +1,186 @@
+#!/usr/bin/env python
+
+# System
+import os
+
+# Third Party
+import numpy as np
+from keras.callbacks import ModelCheckpoint, LearningRateScheduler
+from keras import backend as K
+from keras.optimizers import Adam
+from keras.models import Model
+from keras.layers import Input
+import nibabel as nb
+
+# Internal
+import dvpy as dv
+import dvpy.tf
+
+K.set_image_dim_ordering('tf')  # Tensorflow dimension ordering in this code
+
+class config:
+  def __init__(self):
+    # Dimension of padded input, for training.
+    self.dim = (256, 256)
+
+    # Number of Classes (Including Background)
+    self.num_classes = 6
+
+    # How many images should be processed in each batch?
+    self.batch_size = 32
+
+    # UNet Depth
+    self.unet_depth = 5
+
+    # Number of convolutional feature maps to generate.
+    self.conv_depth = [16, 32, 64, 128, 256, 256, 128, 64, 32, 16, 16]
+    assert(len(self.conv_depth) == (2*self.unet_depth+1))
+
+    # Translation Range
+    self.xy_range = 0.1
+
+    # Scale Range
+    self.zm_range = 0.1
+
+    # Should Flip
+    self.flip = False
+
+    # Path to model file
+    self.model_name = "./data/model.hdf5"
+
+cg = config()
+
+class utils:
+  def in_adapt(self, x, target = cg.dim):
+    """Assumes that image is stored as a nifti file.  Update for your images."""
+    x = nb.load(x).get_data()
+    x = dv.crop_or_pad(x, target)
+    x = np.expand_dims(x, axis = -1)
+    return x
+
+  def out_adapt(self, x, target = cg.dim):
+    return dv.one_hot(self.out_adapt_raw(x, target), cg.num_classes)
+
+  def out_adapt_raw(self, x, target = cg.dim):
+    """Assumes that image is stored as a nifti file.  Update for your images."""
+    x = nb.load(x).get_data()
+    return dv.crop_or_pad(x, target)
+
+  def step_decay(self, epoch, step = 24, initial_power = -3):
+      """
+      The learning rate begins at 10^initial_power,
+      and decreases by a factor of 10 every step epochs.
+      """
+      num =  epoch // step
+      lrate=10**(initial_power - num)
+      print('Learning rate for epoch {} is {}.'.format(epoch+1, 1.0*lrate))
+      return np.float(lrate)
+
+  def get_image_lists(self):
+      """Return four lists of images: Inputs and Outputs for Training and Segmentation."""
+
+      imgs_list_trn = np.load("./data/img_list_0.npy")
+      segs_list_trn = np.load("./data/seg_list_0.npy")
+
+      imgs_list_tst = np.load("./data/img_list_1.npy")
+      segs_list_tst = np.load("./data/seg_list_1.npy")
+
+      return (imgs_list_trn,
+              segs_list_trn,
+              imgs_list_tst,
+              segs_list_tst)
+
+def train():
+
+    ut = utils()
+
+    #===========================================
+    dv.section_print('Calculating Image Lists...')
+
+    (imgs_list_trn,
+     segs_list_trn,
+     imgs_list_tst,
+     segs_list_tst) = ut.get_image_lists()
+
+    #===========================================
+    dv.section_print('Creating and compiling model...')        
+
+    shape = cg.dim + (1,)
+
+    model_inputs = [Input(shape)]
+
+    _, _, output = dvpy.tf.get_unet(cg.dim,
+                                    cg.num_classes,
+                                    cg.conv_depth,
+                                    0, # Stage
+                                    dimension = len(cg.dim),
+                                    unet_depth = cg.unet_depth,
+                                   )(model_inputs[0])
+
+    model_outputs = [output]
+
+    model = Model(inputs = model_inputs,
+                  outputs = model_outputs,
+                 )
+    opt = Adam(lr = 1e-3)
+    model.compile(optimizer = opt,
+                  loss = 'categorical_crossentropy')
+
+    #===========================================
+    dv.section_print('Fitting model...')
+
+    callbacks = [ModelCheckpoint(cg.model_name,
+                                 monitor='val_loss',
+                                 save_best_only=True,
+                                 ),
+                 LearningRateScheduler(ut.step_decay),
+                ]
+
+    # Training Generator
+    datagen = dvpy.tf.ImageDataGenerator(
+        3, # Dimension of input image
+        translation_range = cg.xy_range,  # randomly shift images vertically (fraction of total height)
+#        rotation_range = 0.0,  # randomly rotate images in the range (degrees, 0 to 180)
+        scale_range = cg.zm_range,
+        flip = cg.flip,
+        )
+
+    datagen_flow = datagen.flow(imgs_list_trn,
+      segs_list_trn,
+      batch_size = cg.batch_size,
+      input_adapter = ut.in_adapt,
+      output_adapter = ut.out_adapt,
+      shape = cg.dim,
+      input_channels = 1,
+      output_channels = cg.num_classes,
+      augment = True,
+      )
+
+    valgen = dvpy.tf.ImageDataGenerator(
+        3, # Dimension of input image
+        )
+
+    valgen_flow = valgen.flow(imgs_list_tst,
+      segs_list_tst,
+      batch_size = cg.batch_size,
+      input_adapter = ut.in_adapt,
+      output_adapter = ut.out_adapt,
+      shape = cg.dim,
+      input_channels = 1,
+      output_channels = cg.num_classes,
+      )
+
+    # Fit the model on the batches generated by datagen.flow().
+    model.fit_generator(datagen_flow,
+                        steps_per_epoch = imgs_list_trn.shape[0] // cg.batch_size,
+                        epochs = 64,
+                        workers = 1,
+                        validation_data = valgen_flow,
+                        validation_steps = imgs_list_tst.shape[0] // cg.batch_size,
+                        callbacks = callbacks,
+                        verbose = 1,
+                       )
+
+if __name__ == '__main__':
+
+  train()
