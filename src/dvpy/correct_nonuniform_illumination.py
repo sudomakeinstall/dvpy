@@ -6,7 +6,7 @@ from skimage.filters import gaussian
 
 # Internal
 
-def correct_nonuniform_illumination(img, percentile = 25, sigma = 10):
+def correct_nonuniform_illumination(img, percentile = 25, sigma = 10, epsilon = 10e-6):
   """
   Attempt to correct nonuniform background illumination in an image.
 
@@ -26,5 +26,5 @@ def correct_nonuniform_illumination(img, percentile = 25, sigma = 10):
   med = np.percentile(img, 25) 
   blr = img.copy()
   blr[blr < med] = med 
-  return img / gaussian(blr, 10) 
+  return img / (gaussian(blr, 10) + epsilon)
 
