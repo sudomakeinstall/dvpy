@@ -13,6 +13,7 @@ from .apply_affine_transform import *
 from .binarize_array import *
 from .bounding_box import bounding_box
 from .capture_coordinates import *
+from .collapse_iterable import *
 from .complex_from_mag_and_phase import *
 from .convert_nii import *
 from .copy_nii import *
@@ -68,6 +69,7 @@ __all__ = [
           'bounding_box',
           'capture_coordinates',
           'capture_coordinates_from_image',
+          'collapse_iterable',
           'complex_from_mag_and_phase',
           'convert_nii',
           'copy_nii',
