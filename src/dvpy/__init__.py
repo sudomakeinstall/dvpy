@@ -29,6 +29,7 @@ from .fit_plane_to_points import *
 from .flip_axis import *
 from .format_p_value import *
 from .geometry import *
+from .jaccard_index import *
 from .keep_largest_connected_component import *
 from .lagrangian_strain_tensor import *
 from .latex_macro import *
@@ -85,6 +86,7 @@ __all__ = [
           'fit_plane_to_points',
           'flip_axis',
           'format_p_value',
+          'jaccard_index',
           'keep_largest_connected_component',
           'lagrangian_strain_tensor',
           'latex_macro',
