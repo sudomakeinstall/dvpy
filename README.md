@@ -11,7 +11,7 @@
 ## First, set up a development environment.
 
     $ sudo apt-get install python3-venv python3-matplotlib
-    $ python3 -m venv .venv --system-site-packages
+    $ python3 -m venv .venv
     $ . ./.venv/bin/activate
     $ pip install --upgrade pip setuptools
 
@@ -22,7 +22,7 @@
 ## Third, install the third party packages.
 
     $ pip install pytest nibabel numpy pandas pypng scikit-image scipy
-    $ pip tensorflow-gpu pyyaml h5py keras
+    $ pip install tensorflow-gpu pyyaml h5py keras
 
 ## Run the tests!
 
