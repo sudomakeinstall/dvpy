@@ -29,7 +29,6 @@ from .fit_plane_to_points import *
 from .flip_axis import *
 from .format_p_value import *
 from .geometry import *
-from .jaccard_index import *
 from .keep_largest_connected_component import *
 from .lagrangian_strain_tensor import *
 from .latex_macro import *
@@ -46,6 +45,7 @@ from .save_interpolated_image import *
 from .save_png import *
 from .section_print import *
 from .sector_mask import *
+from .segmentation_metrics import *
 from .subdivide_quadratic_bspline import *
 from .tag_magnitudes import *
 from .tokenize_path import *
@@ -79,6 +79,8 @@ __all__ = [
           'crop_or_pad',
           'crop_or_pad_to_target',
           'determine_number_of_files',
+          'dice_coefficient',
+          'dice_to_jaccard',
           'displacement_field',
           'displacement_gradient_tensor',
           'euler_poincare_characteristic',
@@ -87,6 +89,7 @@ __all__ = [
           'flip_axis',
           'format_p_value',
           'jaccard_index',
+          'jaccard_to_dice',
           'keep_largest_connected_component',
           'lagrangian_strain_tensor',
           'latex_macro',
