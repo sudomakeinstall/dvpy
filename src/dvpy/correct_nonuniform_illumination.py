@@ -23,8 +23,8 @@ def correct_nonuniform_illumination(img, percentile = 25, sigma = 10, epsilon = 
   :rtype: real-valued array-like
 
   """
-  med = np.percentile(img, 25) 
+  med = np.percentile(img, percentile) 
   blr = img.copy()
   blr[blr < med] = med 
-  return img / (gaussian(blr, 10) + epsilon)
+  return img / (gaussian(blr, sigma) + epsilon)
 
