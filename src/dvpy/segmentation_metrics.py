@@ -44,7 +44,9 @@ def dice_coefficient(y_true, y_pred, label, epsilon = 1e-5):
   return 2 * Intersection / ( Sum + epsilon)
 
 def jaccard_to_dice(j):
+  if ((j < 0.0) or (j > 1.0)): raise ValueError('Jaccard index {} is out of the range [0.0, 1.0]'.format(j))
   return 2 * j / (1 + j)
 
 def dice_to_jaccard(d):
+  if ((d < 0.0) or (d > 1.0)): raise ValueError('Dice coefficient {} is out of the range [0.0, 1.0]'.format(d))
   return d / (2 - d) 
