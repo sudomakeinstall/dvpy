@@ -38,6 +38,7 @@ from .normalize import *
 from .one_hot import *
 from .physical_coordinates import *
 from .pop_and_return import *
+from .read_obj import *
 from .rescale_phase_siemens import *
 from .rotate_2d_vector import *
 from .rotation_matrix_from_angle import *
@@ -99,6 +100,7 @@ __all__ = [
           'one_hot',
           'physical_coordinates',
           'pop_and_return',
+          'read_obj',
           'rescale_phase_siemens',
           'rotation_matrix_from_angle',
           'rotate_2d_vector',
