@@ -36,6 +36,7 @@ from .mask_to_transform import *
 from .nii_vol_to_slices import *
 from .normalize import *
 from .one_hot import *
+from .pandas_append_inplace import *
 from .physical_coordinates import *
 from .pop_and_return import *
 from .read_obj import *
@@ -98,6 +99,7 @@ __all__ = [
           'nii_vol_to_slices',
           'normalize',
           'one_hot',
+          'pandas_append_inplace',
           'physical_coordinates',
           'pop_and_return',
           'read_obj',
