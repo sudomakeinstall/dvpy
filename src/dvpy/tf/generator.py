@@ -49,7 +49,7 @@ class ImageDataGenerator(object):
         cval=0.,
         ):
 
-        self.augmentation_params = dv.Augmentation_Parameters(
+        self.augmentation_params = dv.AugmentationParameters(
           image_dimension,
           translation_range=0.,
           rotation_range=0.,
