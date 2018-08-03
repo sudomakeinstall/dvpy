@@ -94,18 +94,22 @@ class ImageDataGenerator(object):
 
         transform_matrix = dv.generate_random_transform(self.augmentation_params, x.shape[:-1])
         transform_matrix = dv.transform_full_matrix_offset_center(transform_matrix, x.shape[:-1])
-        x = dv.apply_affine_transform_channelwise(x,
+        x = dv.apply_affine_transform_channelwise(
+              x,
               transform_matrix[:-1,:],
-              channel_index = self.img_channel_index,
-              fill_mode=self.fill_mode,
-              cval=self.cval,)
+              channel_index = self.augmentation_params.img_channel_index,
+              fill_mode=self.augmentation_params.fill_mode,
+              cval=self.augmentation_params.cval,
+              )
 
         # For y, mask data, fill mode constant, cval = 0
-        y = dv.apply_affine_transform_channelwise(y,
+        y = dv.apply_affine_transform_channelwise(
+              y,
               transform_matrix[:-1,:],
-              channel_index = self.img_channel_index,
-              fill_mode = self.fill_mode,
-              cval= self.cval,)
+              channel_index = self.augmentation_params.img_channel_index,
+              fill_mode = self.augmentation_params.fill_mode,
+              cval= self.augmentation_params.cval,
+              )
 
-        return x, y, theta
+        return x, y
 

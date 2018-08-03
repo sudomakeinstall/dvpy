@@ -87,9 +87,7 @@ class NumpyArrayIterator(IteratorBase):
             # If *training*, we want to augment the data.
             # If *testing*, we do not.
             if self.augment:
-                x, label, aug_ang = self.image_data_generator.random_transform(x.astype('float32'), label.astype('float32'))
-            else:
-                aug_ang = 0.0
+                x, label = self.image_data_generator.random_transform(x.astype('float32'), label.astype('float32'))
 
             # Normalize the *individual* image from zero to one.
             batch_x[i] = dv.normalize_image(x)
