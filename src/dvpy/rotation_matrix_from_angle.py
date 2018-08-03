@@ -5,7 +5,26 @@ import numpy as np
 
 # Internal
 
-def rotation_matrix_from_angle(ang):
-  return np.array([[np.cos(ang), -np.sin(ang)],
-                   [np.sin(ang),  np.cos(ang)]])
-
+def rotation_matrix_from_angle(ang, matrix_type = '2d'):
+  """
+  Roll = 3D rotation around the x axis
+  Pitch = 3D rotation around the y axis
+  Yaw = 3D rotation around the z axis
+  """
+  if matrix_type == '2d':
+    return np.array([[np.cos(ang), -np.sin(ang)],
+                     [np.sin(ang),  np.cos(ang)]])
+  elif matrix_type == 'roll':
+    return np.array([[ 1          ,  0          , 0           ],
+                     [ 0          ,  np.cos(ang), -np.sin(ang)],
+                     [ 0          ,  np.sin(ang),  np.cos(ang)]])
+  elif matrix_type == 'pitch':
+    return np.array([[ np.cos(ang),  0          ,  np.sin(ang)],
+                     [ 0          ,  1          ,  0           ],
+                     [-np.sin(ang),  0          ,  np.cos(ang)]])
+  elif matrix_type == 'yaw':
+    return np.array([[ np.cos(ang), -np.sin(ang),  0           ],
+                     [ np.sin(ang),  np.cos(ang),  0           ],
+                     [ 0          ,  0          ,  1           ]])
+  else:
+    raise Exception('Unrecognized option matrix_type = {}'.format(matrix_type))
