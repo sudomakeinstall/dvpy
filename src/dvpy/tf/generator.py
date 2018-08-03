@@ -17,6 +17,7 @@ from keras import backend as K
 # Internal
 import dvpy as dv
 
+
 class ImageDataGenerator(object):
     '''Generate minibatches with
     real-time data augmentation.
@@ -37,68 +38,29 @@ class ImageDataGenerator(object):
         horizontal_flip: whether to randomly flip images horizontally. To X and Y
         vertical_flip: whether to randomly flip images vertically. To X and Y
     '''
-    def __init__(self,
-                 image_dimension,
-                 translation_range=0.,
-                 rotation_range=0.,
-                 scale_range=0.,
-                 flip=False,
-                 fill_mode='constant',
-                 cval=0.,
-                 ):
+    def __init__(
+        self,
+        image_dimension,
+        translation_range=0.,
+        rotation_range=0.,
+        scale_range=0.,
+        flip=False,
+        fill_mode='constant',
+        cval=0.,
+        ):
+
+        self.augmentation_params = Augmentation_Parameters(
+          image_dimension,
+          translation_range=0.,
+          rotation_range=0.,
+          scale_range=0.,
+          flip=False,
+          fill_mode='constant',
+          cval=0.,
+          )
 
         if K.image_dim_ordering() != 'tf':
             raise Exception('Only tensorflow backend is supported.')
-
-        self.image_dimension = image_dimension
-        self.translation_range = translation_range
-        self.rotation_range = rotation_range
-        self.scale_range = scale_range
-        self.flip = flip
-        self.fill_mode = fill_mode
-        self.cval = cval
-
-        self.img_spatial_indices = np.array(range(0, image_dimension))
-        self.img_channel_index = image_dimension
-
-        ##
-        ## Translation
-        ##
-
-        if np.isscalar(translation_range):
-            self.translation_range = (translation_range,) * self.image_dimension
-        elif len(translation_range) == self.image_dimension:
-            self.translation_range = translation_range
-        else:
-            raise Exception('translation_range should be either a float, or an array-like length image_dimension')
-
-        ##
-        ## Rotation
-        ##
-
-        ## TODO
-
-        ##
-        ## Scale
-        ##
-
-        if np.isscalar(scale_range):
-            self.scale_range = (scale_range,) * self.image_dimension
-        elif len(scale_range) == self.image_dimension:
-            self.scale_range = scale_range
-        else:
-            raise Exception('scale_range should be either a float, or an array-like length image_dimension')
-
-        ##
-        ## Flip
-        ##
-
-        if np.isscalar(flip):
-            self.flip = (flip,) * self.image_dimension
-        elif len(flip) == self.image_dimension:
-            self.flip = flip
-        else:
-            raise Exception('flip should be either a float, or an array-like length image_dimension')
 
     def flow(self,
              X,
@@ -130,51 +92,7 @@ class ImageDataGenerator(object):
 
     def random_transform(self, x, y):
 
-        ##
-        ## Translation
-        ##
-
-        translation = np.eye(self.image_dimension + 1)
-
-        for t, ax in zip(self.translation_range, self.img_spatial_indices):
-            translation[ax, self.image_dimension] = np.random.uniform(-t, t) * x.shape[ax - 1]
-
-        ##
-        ## Rotation
-        ##
-
-        rotation = np.eye(self.image_dimension + 1)
-
-        theta = np.pi / 180.0 * np.random.uniform(-self.rotation_range, self.rotation_range)
-        rotation[0,0] = np.cos(theta)
-        rotation[0,1] = -np.sin(theta)
-        rotation[1,0] = np.sin(theta)
-        rotation[1,1] = np.cos(theta)
-
-        ##
-        ## Scale
-        ##
-
-        scale = np.eye(self.image_dimension + 1)
-
-        for s, ax in zip(self.scale_range, self.img_spatial_indices):
-            scale[ax,ax] = np.random.uniform(1 - s, 1 + s)
-
-        ##
-        ## Flip
-        ##
-
-        flip = np.eye(self.image_dimension + 1)
-
-        for f, ax in zip(self.flip, self.img_spatial_indices):
-            if f and (np.random.random() < 0.5): flip[ax,ax] *= -1
-
-        ##
-        ## Compose and Apply
-        ##
-
-        transform_matrix = np.dot(np.dot(rotation, translation), scale)
-
+        transform_matrix = dv.generate_random_transform(self.augmentation_params, x.shape[:-1])
         transform_matrix = dv.transform_full_matrix_offset_center(transform_matrix, x.shape[:-1])
         x = dv.apply_affine_transform_channelwise(x,
               transform_matrix[:-1,:],

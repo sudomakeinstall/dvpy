@@ -1,5 +1,6 @@
 from . import tf
 
+from .AugmentationParameters import *
 from .add_horizontal_limits import *
 from .add_trendline import *
 from .aha_polar_plot import *
@@ -29,6 +30,7 @@ from .fit_plane_to_points import *
 from .flip_axis import *
 from .format_p_value import *
 from .geometry import *
+from .generate_random_transform import *
 from .keep_largest_connected_component import *
 from .lagrangian_strain_tensor import *
 from .latex_macro import *
@@ -57,6 +59,7 @@ from .wrap_phase import *
 from .normalize_image import *
 
 __all__ = [
+          'AugmentationParameters',
           'add_horizontal_limits',
           'add_trendline',
           'aha_polar_plot',
@@ -90,6 +93,7 @@ __all__ = [
           'fit_plane_to_points',
           'flip_axis',
           'format_p_value',
+          'generate_random_transform',
           'jaccard_index',
           'jaccard_to_dice',
           'keep_largest_connected_component',

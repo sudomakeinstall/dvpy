@@ -14,15 +14,15 @@ def rotation_matrix_from_angle(ang, matrix_type = '2d'):
   if matrix_type == '2d':
     return np.array([[np.cos(ang), -np.sin(ang)],
                      [np.sin(ang),  np.cos(ang)]])
-  elif matrix_type == 'roll':
+  elif matrix_type in {'x', 'roll'}:
     return np.array([[ 1          ,  0          , 0           ],
                      [ 0          ,  np.cos(ang), -np.sin(ang)],
                      [ 0          ,  np.sin(ang),  np.cos(ang)]])
-  elif matrix_type == 'pitch':
+  elif matrix_type in {'y', 'pitch'}:
     return np.array([[ np.cos(ang),  0          ,  np.sin(ang)],
                      [ 0          ,  1          ,  0           ],
                      [-np.sin(ang),  0          ,  np.cos(ang)]])
-  elif matrix_type == 'yaw':
+  elif matrix_type in {'z', 'yaw'}:
     return np.array([[ np.cos(ang), -np.sin(ang),  0           ],
                      [ np.sin(ang),  np.cos(ang),  0           ],
                      [ 0          ,  0          ,  1           ]])
