@@ -1,4 +1,5 @@
 
+from .balanced_categorical_crossentropy import *
 from .constants import *
 from .deg2rad import *
 from .number_of_model_weights import *
@@ -12,6 +13,7 @@ from .NumpyArrayIterator import *
 from .generator import *
 
 __all__ = [
+           'balanced_categorical_crossentropy',
            'conv_bn_relu_1x',
            'conv_bn_relu',
            'get_unet',
