@@ -5,7 +5,8 @@ import numpy as np
 
 # Internal
 
-def crop_or_pad(array, target, value = 0):
+
+def crop_or_pad(array, target, value=0):
     """
     Symmetrically pad or crop along each dimension to the specified target dimension.
 
@@ -20,17 +21,13 @@ def crop_or_pad(array, target, value = 0):
     """
     # Pad each axis to at least the target.
     margin = target - np.array(array.shape)
-    padding = [(0,max(x,0)) for x in margin]
-    array = np.pad(array,
-                   padding,
-                   mode='constant',
-                   constant_values=value)
+    padding = [(0, max(x, 0)) for x in margin]
+    array = np.pad(array, padding, mode="constant", constant_values=value)
     for i, x in enumerate(margin):
-        array = np.roll(array, shift = +(x//2), axis = i)
+        array = np.roll(array, shift=+(x // 2), axis=i)
 
     if type(target) == int:
-      target = [target] * array.ndim
+        target = [target] * array.ndim
 
     ind = [slice(0, t) for t in target]
     return array[ind]
-

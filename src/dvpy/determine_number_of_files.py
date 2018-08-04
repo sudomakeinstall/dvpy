@@ -5,8 +5,9 @@ import os
 
 # Internal
 
+
 def determine_number_of_files(directory, pattern):
-  """
+    """
   Determine how many files in a directory match a given pattern
   after substituting sequential integers starting from zero.
 
@@ -21,7 +22,7 @@ def determine_number_of_files(directory, pattern):
   :rtype: int
   """
 
-  number_of_files = 0
-  while (os.path.isfile(os.path.join(directory, pattern%(number_of_files)))):
-    number_of_files += 1
-  return number_of_files
+    number_of_files = 0
+    while os.path.isfile(os.path.join(directory, pattern % (number_of_files))):
+        number_of_files += 1
+    return number_of_files

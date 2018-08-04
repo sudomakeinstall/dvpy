@@ -5,5 +5,6 @@ import pathlib as pl
 
 # Internal
 
+
 def tokenize_path(path):
-  return pl.PurePath(path).parts
+    return pl.PurePath(path).parts

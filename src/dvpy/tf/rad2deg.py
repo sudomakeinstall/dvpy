@@ -6,5 +6,6 @@ import numpy as np
 
 # Internal
 
+
 def rad2deg(x):
-  return tf.multiply(x, tf.constant(180.0/np.pi))
+    return tf.multiply(x, tf.constant(180.0 / np.pi))

@@ -1,5 +1,6 @@
 from collections import Iterable
 
+
 def collapse_iterable_imp(container):
     """
     https://stackoverflow.com/a/40857703/1544627
@@ -10,9 +11,9 @@ def collapse_iterable_imp(container):
         else:
             yield i
 
+
 def collapse_iterable(container):
     """
     Collapse (i.e., flatten) a nested collection of iterables into a single list.
     """
     return list(collapse_iterable_imp(container))
-

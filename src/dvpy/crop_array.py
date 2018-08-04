@@ -5,8 +5,9 @@ import numpy as np
 
 # Internal
 
+
 def crop_array(array, origin, dim):
-  """
+    """
   Crop an array-like given origin and dimensions
 
   :param array: Array to be cropped.
@@ -22,8 +23,7 @@ def crop_array(array, origin, dim):
   :rtype: array-like
   """
 
-  start = np.array(origin)
-  end = start + np.array(dim)
-  slices = [slice(s,e) for (s,e) in zip(start, end)]
-  return array[slices]
-  
+    start = np.array(origin)
+    end = start + np.array(dim)
+    slices = [slice(s, e) for (s, e) in zip(start, end)]
+    return array[slices]

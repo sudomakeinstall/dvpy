@@ -6,30 +6,32 @@ import numpy as np
 
 # Internal
 
+
 class IteratorBase(object):
 
-    __slots__ = ['N',
-                 'batch_size',
-                 'shuffle',
-                 'batch_index',
-                 'total_batches_seen',
-                 'lock',
-                 'index_generator',
-                ]
+    __slots__ = [
+        "N",
+        "batch_size",
+        "shuffle",
+        "batch_index",
+        "total_batches_seen",
+        "lock",
+        "index_generator",
+    ]
 
     def __init__(self, N, batch_size, shuffle, seed):
-        self.N = N 
+        self.N = N
         self.batch_size = batch_size
         self.shuffle = shuffle
-    
-        self.batch_index = 0 
-        self.total_batches_seen = 0 
+
+        self.batch_index = 0
+        self.total_batches_seen = 0
         self.lock = threading.Lock()
-    
+
         self.index_generator = self._flow_index(N, batch_size, shuffle, seed)
 
     def reset(self):
-        self.batch_index = 0 
+        self.batch_index = 0
 
     def _flow_index(self, N, batch_size=32, shuffle=False, seed=None):
         # ensure self.batch_index is 0
@@ -50,10 +52,13 @@ class IteratorBase(object):
                 self.batch_index += 1
             else:
                 current_batch_size = N - current_index
-                self.batch_index = 0 
+                self.batch_index = 0
             self.total_batches_seen += 1
-            yield (index_array[current_index: current_index + current_batch_size],
-                   current_index, current_batch_size)
+            yield (
+                index_array[current_index : current_index + current_batch_size],
+                current_index,
+                current_batch_size,
+            )
 
     def __iter__(self):
         # needed if we want to do something like:
@@ -63,4 +68,3 @@ class IteratorBase(object):
     def __next__(self, *args, **kwargs):
         # self.next must be defined in the child class.
         return self.next(*args, **kwargs)
- 

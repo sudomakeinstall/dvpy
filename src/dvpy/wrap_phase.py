@@ -5,8 +5,9 @@ import numpy as np
 
 # Internal
 
+
 def wrap_phase(x):
-  """
+    """
   Wrap the input into the range [-pi, pi].
 
   :param x: Number, array, or matrix to be phase wrapped.
@@ -16,4 +17,4 @@ def wrap_phase(x):
     into the range [-pi, pi] elementwise.
   :rtype: array-like
   """
-  return (x + np.pi) % (2.0 * np.pi) - np.pi
+    return (x + np.pi) % (2.0 * np.pi) - np.pi

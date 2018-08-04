@@ -5,6 +5,7 @@ import numpy as np
 
 # Internal
 
+
 def flip_axis(array, axis):
     """
     Flip the given axis of an array.  Note that the ordering follows the
@@ -27,4 +28,3 @@ def flip_axis(array, axis):
     array = array[::-1, ...]
     # Put the array back and return.
     return array.swapaxes(0, axis)
-

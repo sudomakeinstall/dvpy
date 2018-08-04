@@ -1,4 +1,4 @@
-'''
+"""
 Fairly basic set of tools for real-time data augmentation on image data.
 Can easily be extended to include new transformations,
 new preprocessing methods, etc...
@@ -6,7 +6,7 @@ new preprocessing methods, etc...
 For image segmentation problem data augmentation.
 Transform train img data and mask img data simultaneously and in the same fashion.
 Omit flow from directory function.
-'''
+"""
 
 # System
 
@@ -19,7 +19,7 @@ import dvpy as dv
 
 
 class ImageDataGenerator(object):
-    '''Generate minibatches with
+    """Generate minibatches with
     real-time data augmentation.
     Assume X is train img, Y is train label (same size as X with only 0 and 255 for values)
     # Arguments
@@ -37,7 +37,8 @@ class ImageDataGenerator(object):
             'constant'. Default is 0.
         horizontal_flip: whether to randomly flip images horizontally. To X and Y
         vertical_flip: whether to randomly flip images vertically. To X and Y
-    '''
+    """
+
     def __init__(
         self,
         image_dimension,
@@ -45,36 +46,37 @@ class ImageDataGenerator(object):
         rotation_range=0.,
         scale_range=0.,
         flip=False,
-        fill_mode='constant',
+        fill_mode="constant",
         cval=0.,
-        ):
+    ):
 
         self.augmentation_params = dv.AugmentationParameters(
-          image_dimension,
-          translation_range=0.,
-          rotation_range=0.,
-          scale_range=0.,
-          flip=False,
-          fill_mode='constant',
-          cval=0.,
-          )
+            image_dimension,
+            translation_range=0.,
+            rotation_range=0.,
+            scale_range=0.,
+            flip=False,
+            fill_mode="constant",
+            cval=0.,
+        )
 
-        if K.image_dim_ordering() != 'tf':
-            raise Exception('Only tensorflow backend is supported.')
+        if K.image_dim_ordering() != "tf":
+            raise Exception("Only tensorflow backend is supported.")
 
-    def flow(self,
-             X,
-             y=None,
-             batch_size=32,
-             shuffle=True,
-             seed=None,
-             input_adapter = None,
-             output_adapter = None,
-             shape = None,
-             input_channels = None,
-             output_channels = None,
-             augment = False,
-            ):
+    def flow(
+        self,
+        X,
+        y=None,
+        batch_size=32,
+        shuffle=True,
+        seed=None,
+        input_adapter=None,
+        output_adapter=None,
+        shape=None,
+        input_channels=None,
+        output_channels=None,
+        augment=False,
+    ):
         return dv.tf.NumpyArrayIterator(
             X,
             y,
@@ -82,34 +84,37 @@ class ImageDataGenerator(object):
             batch_size=batch_size,
             shuffle=shuffle,
             seed=seed,
-            input_adapter = input_adapter,
-            output_adapter = output_adapter,
-            shape = shape,
-            input_channels = input_channels,
-            output_channels = output_channels,
-            augment = augment,
-                                 )
+            input_adapter=input_adapter,
+            output_adapter=output_adapter,
+            shape=shape,
+            input_channels=input_channels,
+            output_channels=output_channels,
+            augment=augment,
+        )
 
     def random_transform(self, x, y):
 
-        transform_matrix = dv.generate_random_transform(self.augmentation_params, x.shape[:-1])
-        transform_matrix = dv.transform_full_matrix_offset_center(transform_matrix, x.shape[:-1])
+        transform_matrix = dv.generate_random_transform(
+            self.augmentation_params, x.shape[:-1]
+        )
+        transform_matrix = dv.transform_full_matrix_offset_center(
+            transform_matrix, x.shape[:-1]
+        )
         x = dv.apply_affine_transform_channelwise(
-              x,
-              transform_matrix[:-1,:],
-              channel_index = self.augmentation_params.img_channel_index,
-              fill_mode=self.augmentation_params.fill_mode,
-              cval=self.augmentation_params.cval,
-              )
+            x,
+            transform_matrix[:-1, :],
+            channel_index=self.augmentation_params.img_channel_index,
+            fill_mode=self.augmentation_params.fill_mode,
+            cval=self.augmentation_params.cval,
+        )
 
         # For y, mask data, fill mode constant, cval = 0
         y = dv.apply_affine_transform_channelwise(
-              y,
-              transform_matrix[:-1,:],
-              channel_index = self.augmentation_params.img_channel_index,
-              fill_mode = self.augmentation_params.fill_mode,
-              cval= self.augmentation_params.cval,
-              )
+            y,
+            transform_matrix[:-1, :],
+            channel_index=self.augmentation_params.img_channel_index,
+            fill_mode=self.augmentation_params.fill_mode,
+            cval=self.augmentation_params.cval,
+        )
 
         return x, y
-

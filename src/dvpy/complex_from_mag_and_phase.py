@@ -5,8 +5,9 @@ import numpy as np
 
 # Internal
 
+
 def complex_from_mag_and_phase(m, p):
-  """
+    """
   Given magnitude and phase, create a complex number.
 
   :param m: magnitude
@@ -19,6 +20,6 @@ def complex_from_mag_and_phase(m, p):
   :rtype: complex-valued array-like (of same shape as m and p)
 
   """
-  r = np.multiply(m, np.cos(p))
-  i = np.multiply(m, np.sin(p))
-  return r + i * 1.0j
+    r = np.multiply(m, np.cos(p))
+    i = np.multiply(m, np.sin(p))
+    return r + i * 1.0j

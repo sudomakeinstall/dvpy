@@ -6,12 +6,10 @@ from scipy.ndimage.interpolation import affine_transform
 
 # Internal
 
-def apply_affine_transform_channelwise(array,
-      transform_matrix,
-      channel_index=0,
-      fill_mode='constant',
-      cval=0.,
-      order=0):
+
+def apply_affine_transform_channelwise(
+    array, transform_matrix, channel_index=0, fill_mode="constant", cval=0., order=0
+):
     """
     Apply an affine transform to an image.
 
@@ -40,21 +38,19 @@ def apply_affine_transform_channelwise(array,
     """
 
     array = np.rollaxis(array, channel_index, 0)
-    array = [apply_affine_transform(x_channel,
-               transform_matrix,
-               fill_mode = fill_mode,
-               cval = cval,
-               order=0,
-               ) for x_channel in array]
+    array = [
+        apply_affine_transform(
+            x_channel, transform_matrix, fill_mode=fill_mode, cval=cval, order=0
+        )
+        for x_channel in array
+    ]
     array = np.stack(array, axis=0)
-    return np.rollaxis(array, 0, channel_index+1)
+    return np.rollaxis(array, 0, channel_index + 1)
 
 
-def apply_affine_transform(array,
-      transform_matrix,
-      fill_mode='constant',
-      cval=0.,
-      order=0):
+def apply_affine_transform(
+    array, transform_matrix, fill_mode="constant", cval=0., order=0
+):
     """
     Apply an affine transform to an image.
 
@@ -80,20 +76,21 @@ def apply_affine_transform(array,
     """
     # Check dimensions
     if transform_matrix.ndim != 2:
-      raise ValueError('The transformation matrix must have 2 dimensions.')
+        raise ValueError("The transformation matrix must have 2 dimensions.")
 
     if transform_matrix.shape[0] != array.ndim:
-      raise ValueError('The first dimension of the transformation matrix must be equal to array.ndim.')
+        raise ValueError(
+            "The first dimension of the transformation matrix must be equal to array.ndim."
+        )
 
     if transform_matrix.shape[1] != array.ndim + 1:
-      raise ValueError('The second dimension of the transformation matrix must be equal to array.ndim + 1.')
+        raise ValueError(
+            "The second dimension of the transformation matrix must be equal to array.ndim + 1."
+        )
 
-    final_affine_matrix = transform_matrix[:array.ndim, :array.ndim] 
-    final_offset = transform_matrix[:array.ndim, array.ndim]
+    final_affine_matrix = transform_matrix[: array.ndim, : array.ndim]
+    final_offset = transform_matrix[: array.ndim, array.ndim]
 
-    return affine_transform(array,
-               final_affine_matrix,
-               final_offset,
-               order=0,
-               mode=fill_mode,
-               cval=cval)
+    return affine_transform(
+        array, final_affine_matrix, final_offset, order=0, mode=fill_mode, cval=cval
+    )
