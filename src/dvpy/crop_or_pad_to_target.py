@@ -29,5 +29,5 @@ def crop_or_pad(array, target, value=0):
     if type(target) == int:
         target = [target] * array.ndim
 
-    ind = [slice(0, t) for t in target]
+    ind = tuple([slice(0, t) for t in target])
     return array[ind]
