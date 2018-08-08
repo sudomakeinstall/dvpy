@@ -72,7 +72,7 @@ def get_unet(
     dim,
     num_output_classes,
     conv_depth,
-    stage,
+    layer_name = None,
     dimension=2,
     weight_decay=1e-4,
     unet_depth=3,
@@ -151,7 +151,7 @@ def get_unet(
         conv13 = Activation(activation="softmax")(conv12)
 
         # segmentation loss
-        seg_pred = Reshape(dim + (num_output_classes,), name="img_sg%d" % (stage))(
+        seg_pred = Reshape(dim + (num_output_classes,), name=layer_name)(
             conv13
         )
         return ds[-1], final_feature, seg_pred
