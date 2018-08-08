@@ -10,7 +10,7 @@ from .wrapped_phase_difference_loss import *
 from .unet import conv_bn_relu_1x, conv_bn_relu, get_unet
 from .IteratorBase import *
 from .NumpyArrayIterator import *
-from .generator import *
+from .ImageDataGenerator import *
 
 __all__ = [
     "balanced_categorical_crossentropy",
