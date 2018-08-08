@@ -42,6 +42,8 @@ class ImageDataGenerator(object):
     def __init__(
         self,
         image_dimension,
+        input_layer_names,
+        output_layer_names,
         translation_range=0.,
         rotation_range=0.,
         scale_range=0.,
@@ -50,6 +52,8 @@ class ImageDataGenerator(object):
         cval=0.,
     ):
 
+        self.input_layer_names = input_layer_names
+        self.output_layer_names = output_layer_names
         self.augmentation_params = dv.AugmentationParameters(
             image_dimension,
             translation_range=translation_range,

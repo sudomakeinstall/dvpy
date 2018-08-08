@@ -107,7 +107,7 @@ class NumpyArrayIterator(IteratorBase):
         ## Return
         ##
 
-        inputs = {"input_1": batch_x}
-        outputs = {"img_sg0": batch_y}
+        inputs = {name : layer for name, layer in zip(self.image_data_generator.input_layer_names, [batch_x])}
+        outputs = {name : layer for name, layer in zip(self.image_data_generator.output_layer_names, [batch_y])}
 
         return (inputs, outputs)
