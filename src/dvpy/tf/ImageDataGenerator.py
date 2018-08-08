@@ -60,7 +60,7 @@ class ImageDataGenerator(object):
             rotation_range=rotation_range,
             scale_range=scale_range,
             flip=flip,
-            fill_mode=flip_mode,
+            fill_mode=fill_mode,
             cval=cval,
         )
 
