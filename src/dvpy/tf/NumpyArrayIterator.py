@@ -47,6 +47,7 @@ class NumpyArrayIterator(IteratorBase):
         self.input_channels = input_channels
         self.output_channels = output_channels
         self.augment = augment
+        self.normalize = normalize
         super(NumpyArrayIterator, self).__init__(X.shape[0], batch_size, shuffle, seed)
 
     def next(self):
@@ -99,7 +100,7 @@ class NumpyArrayIterator(IteratorBase):
                 )
 
             # Normalize the *individual* images to zero mean and unit std
-            if normalize:
+            if self.normalize:
                 batch_x[i] = dv.normalize_image(x)
             batch_y[i] = label
 
