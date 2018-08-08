@@ -52,12 +52,12 @@ class ImageDataGenerator(object):
 
         self.augmentation_params = dv.AugmentationParameters(
             image_dimension,
-            translation_range=0.,
-            rotation_range=0.,
-            scale_range=0.,
-            flip=False,
-            fill_mode="constant",
-            cval=0.,
+            translation_range=translation_range,
+            rotation_range=rotation_range,
+            scale_range=scale_range,
+            flip=flip,
+            fill_mode=flip_mode,
+            cval=cval,
         )
 
         if K.image_dim_ordering() != "tf":
