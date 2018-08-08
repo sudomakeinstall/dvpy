@@ -24,6 +24,7 @@ class NumpyArrayIterator(IteratorBase):
         input_channels=None,
         output_channels=None,
         augment=False,
+        normalize=False,
     ):
 
         if K.image_dim_ordering() != "tf":
@@ -97,8 +98,9 @@ class NumpyArrayIterator(IteratorBase):
                     x.astype("float32"), label.astype("float32")
                 )
 
-            # Normalize the *individual* image from zero to one.
-            batch_x[i] = dv.normalize_image(x)
+            # Normalize the *individual* images to zero mean and unit std
+            if normalize:
+                batch_x[i] = dv.normalize_image(x)
             batch_y[i] = label
 
         ##
