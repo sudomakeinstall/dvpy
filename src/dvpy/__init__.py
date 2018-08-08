@@ -34,6 +34,7 @@ from .generate_random_transform import *
 from .keep_largest_connected_component import *
 from .lagrangian_strain_tensor import *
 from .latex_macro import *
+from .learning_rate_step_decay import *
 from .mask_to_transform import *
 from .nii_vol_to_slices import *
 from .normalize import *
@@ -99,6 +100,7 @@ __all__ = [
     "keep_largest_connected_component",
     "lagrangian_strain_tensor",
     "latex_macro",
+    "learning_rate_step_decay",
     "mask_to_transform",
     "nii_vol_to_slices",
     "normalize",
