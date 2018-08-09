@@ -80,6 +80,7 @@ class ImageDataGenerator(object):
         input_channels=None,
         output_channels=None,
         augment=False,
+        normalize=False,
     ):
         return dv.tf.NumpyArrayIterator(
             X,
@@ -94,6 +95,7 @@ class ImageDataGenerator(object):
             input_channels=input_channels,
             output_channels=output_channels,
             augment=augment,
+            normalize=normalize,
         )
 
     def random_transform(self, x, y):
