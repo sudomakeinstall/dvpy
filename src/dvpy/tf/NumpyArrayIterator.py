@@ -102,6 +102,9 @@ class NumpyArrayIterator(IteratorBase):
             # Normalize the *individual* images to zero mean and unit std
             if self.normalize:
                 batch_x[i] = dv.normalize_image(x)
+            else:
+                batch_x[i] = x
+
             batch_y[i] = label
 
         ##
