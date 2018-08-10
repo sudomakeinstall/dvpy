@@ -6,14 +6,6 @@ from keras.initializers import Orthogonal
 from keras.layers.core import Activation
 from keras.layers.normalization import BatchNormalization
 from keras.layers import (
-    Conv3D,
-    MaxPooling3D,
-    Input,
-    UpSampling3D,
-    Reshape,
-    ZeroPadding3D,
-)
-from keras.layers import (
     Input,
     Conv1D,
     Conv2D,
@@ -153,15 +145,23 @@ def get_unet(
                         conv_depth[i + unet_depth], kernel_size, dimension=dimension
                     )(us[-1])
                 ]
-            padding = get_padding(K.int_shape(levels[unet_depth - i - 1]), dimension)
             us += [
                 concatenate(
                     [
-                        ZeroPadding(padding)(UpSampling(size=pool_size)(levels[-1])),
+                        UpSampling(size=pool_size)(levels[-1]),
                         levels[unet_depth - i - 1],
                     ]
                 )
             ]
+#            padding = get_padding(K.int_shape(levels[unet_depth - i - 1]), dimension)
+#            us += [
+#                concatenate(
+#                    [
+#                        ZeroPadding(padding)(UpSampling(size=pool_size)(levels[-1])),
+#                        levels[unet_depth - i - 1],
+#                    ]
+#                )
+#            ]
 
         final_feature = conv_bn_relu(
             conv_depth[unet_depth * 2], kernel_size, dimension=dimension
