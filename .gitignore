@@ -107,3 +107,6 @@ venv.bak/
 # vim
 *.swp
 .DS_Store
+
+Pipfile
+Pipfile.lock
