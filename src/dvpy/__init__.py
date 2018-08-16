@@ -25,6 +25,7 @@ from .determine_number_of_files import *
 from .displacement_field import *
 from .displacement_gradient_tensor import *
 from .euler_poincare_characteristic import *
+from .find_duplicates import *
 from .fit_plane import *
 from .fit_plane_to_points import *
 from .flip_axis import *
@@ -90,6 +91,7 @@ __all__ = [
     "displacement_field",
     "displacement_gradient_tensor",
     "euler_poincare_characteristic",
+    "find_duplicates",
     "fit_plane",
     "fit_plane_to_points",
     "flip_axis",
