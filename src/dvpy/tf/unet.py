@@ -147,21 +147,18 @@ def get_unet(
                 ]
             us += [
                 concatenate(
-                    [
-                        UpSampling(size=pool_size)(levels[-1]),
-                        levels[unet_depth - i - 1],
-                    ]
+                    [UpSampling(size=pool_size)(levels[-1]), levels[unet_depth - i - 1]]
                 )
             ]
-#            padding = get_padding(K.int_shape(levels[unet_depth - i - 1]), dimension)
-#            us += [
-#                concatenate(
-#                    [
-#                        ZeroPadding(padding)(UpSampling(size=pool_size)(levels[-1])),
-#                        levels[unet_depth - i - 1],
-#                    ]
-#                )
-#            ]
+        #            padding = get_padding(K.int_shape(levels[unet_depth - i - 1]), dimension)
+        #            us += [
+        #                concatenate(
+        #                    [
+        #                        ZeroPadding(padding)(UpSampling(size=pool_size)(levels[-1])),
+        #                        levels[unet_depth - i - 1],
+        #                    ]
+        #                )
+        #            ]
 
         final_feature = conv_bn_relu(
             conv_depth[unet_depth * 2], kernel_size, dimension=dimension
