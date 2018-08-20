@@ -32,6 +32,7 @@ from .flip_axis import *
 from .format_p_value import *
 from .geometry import *
 from .generate_random_transform import *
+from .ITKSnapSegmentationLabel import *
 from .keep_largest_connected_component import *
 from .lagrangian_strain_tensor import *
 from .latex_macro import *
@@ -97,6 +98,7 @@ __all__ = [
     "flip_axis",
     "format_p_value",
     "generate_random_transform",
+    "ITKSnapSegmentationLabel",
     "jaccard_index",
     "jaccard_to_dice",
     "keep_largest_connected_component",
