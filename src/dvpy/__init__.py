@@ -24,6 +24,7 @@ from .crop_or_pad_to_target import *
 from .determine_number_of_files import *
 from .displacement_field import *
 from .displacement_gradient_tensor import *
+from .equalize_3d_axes import equalize_3d_axes
 from .euler_poincare_characteristic import *
 from .find_duplicates import *
 from .fit_plane import *
@@ -91,6 +92,7 @@ __all__ = [
     "dice_to_jaccard",
     "displacement_field",
     "displacement_gradient_tensor",
+    "equalize_3d_axes",
     "euler_poincare_characteristic",
     "find_duplicates",
     "fit_plane",
