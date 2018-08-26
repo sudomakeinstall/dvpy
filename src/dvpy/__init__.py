@@ -5,6 +5,7 @@ from .add_horizontal_limits import *
 from .add_trendline import *
 from .aha_polar_plot import *
 from .aha_segments import *
+from .angle_between import angle_between
 from .annotate_bland_altman import *
 from .annotate_iqr import *
 from .annotate_linear_regression import *
@@ -44,6 +45,7 @@ from .normalize import *
 from .one_hot import *
 from .pandas_append_inplace import *
 from .physical_coordinates import *
+from .project_point_onto_line import project_point_onto_line
 from .pop_and_return import *
 from .read_obj import *
 from .rescale_phase_siemens import *
@@ -68,6 +70,7 @@ __all__ = [
     "add_trendline",
     "aha_polar_plot",
     "aha_segments",
+    "angle_between",
     "annotate_bland_altman",
     "annotate_iqr",
     "annotate_linear_regression",
@@ -114,6 +117,7 @@ __all__ = [
     "pandas_append_inplace",
     "physical_coordinates",
     "pop_and_return",
+    "project_point_onto_line",
     "read_obj",
     "rescale_phase_siemens",
     "rotation_matrix_from_angle",

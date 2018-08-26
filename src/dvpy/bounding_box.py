@@ -9,16 +9,16 @@ import dvpy as dv
 
 def bounding_box(array):
     """ 
-  Get the bounding box from an `ndarray`.
+    Get the bounding box from an `ndarray`.
 
-  :param array: The input array.
-  :type array: ndarray
+    :param array: The input array.
+    :type array: ndarray
 
-  :returns: A list of tuples.  `len(out) == array.ndim`; the tuples have length two and specify the first and last index in that dimension containing a value which evaluates to `True`.
-  :rtype: [(int, int), ...]
+    :returns: A list of tuples.  `len(out) == array.ndim`; the tuples have length two and specify the first and last index in that dimension containing a value which evaluates to `True`.
+    :rtype: [(int, int), ...]
 
-  :raises: `ValueError` if all values are near zero.
-  """
+    :raises: `ValueError` if all values are near zero.
+    """
 
     if np.allclose(array, np.zeros(array.shape)):
         raise ValueError("The bounding box of an all-zero array is ambiguous.")
