@@ -134,7 +134,6 @@ __all__ = [
     "wrapped_phase_difference",
     "wrap_phase",
     "generate_circle",
-    "project_point_onto_plane",
     "distance_from_point_to_plane",
     "distance_from_points_to_plane",
     "normalize_image",
