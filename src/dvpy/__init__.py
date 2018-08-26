@@ -46,6 +46,7 @@ from .one_hot import *
 from .pandas_append_inplace import *
 from .physical_coordinates import *
 from .project_point_onto_line import project_point_onto_line
+from .project_point_onto_plane import project_point_onto_plane
 from .pop_and_return import *
 from .read_obj import *
 from .rescale_phase_siemens import *
@@ -119,6 +120,7 @@ __all__ = [
     "physical_coordinates",
     "pop_and_return",
     "project_point_onto_line",
+    "project_point_onto_plane",
     "read_obj",
     "rescale_phase_siemens",
     "rotation_matrix_from_angle",
