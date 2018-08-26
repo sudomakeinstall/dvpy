@@ -5,7 +5,7 @@ def angle_between(v1, v2):
     r"""
     Returns the angle in radians between vectors :math:`v_1` and :math:`v_2`.
 
-    The definition of the dot product is as follows (where :math:`\theta` is the angle between :math:`v_1` and :math:`v_2`):
+    The definition of the dot product [1] is as follows (where :math:`\theta` is the angle between :math:`v_1` and :math:`v_2`):
 
     .. math::
         v_1 \cdot v_2 = \| v_1 \| \| v_2 \| \cos(\theta)
@@ -31,6 +31,7 @@ def angle_between(v1, v2):
     :param v2: The second vector.
     :type v2: An array-like, with the same length as `v1`.
 
+    [1] https://en.wikipedia.org/wiki/Dot_product#Geometric_definition
     """
     v1_u = dv.normalize(v1)
     v2_u = dv.normalize(v2)
