@@ -25,11 +25,13 @@ def project_point_onto_line(o, v, p):
 
         x = dv.project_point_onto_line(o, v, p)
 
-        line = np.array([o, o + v]).transpose()
+        line1 = np.array([o, o + v]).transpose()
+        line2 = np.array([p, x]).transpose()
 
         size = 100
 
-        plt.plot(line[0], line[1], '--')
+        plt.plot(line1[0], line1[1], '--')
+        plt.plot(line2[0], line2[1], '--')
 
         plt.scatter(*o, s = size, c = 'red')
         plt.scatter(*(o + v), s = size, c = 'orange')
