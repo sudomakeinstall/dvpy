@@ -60,6 +60,7 @@ from .subdivide_quadratic_bspline import *
 from .tag_magnitudes import *
 from .tokenize_path import *
 from .transform_matrix_offset_center import *
+from .vector_projection import vector_projection
 from .wrapped_phase_difference import *
 from .wrap_phase import *
 from .normalize_image import *
@@ -137,4 +138,5 @@ __all__ = [
     "distance_from_point_to_plane",
     "distance_from_points_to_plane",
     "normalize_image",
+    "vector_projection",
 ]
