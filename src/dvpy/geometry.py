@@ -7,14 +7,6 @@ import numpy.linalg as la
 # Internal
 
 
-def project_point_onto_line(point, line_origin, line_vector):
-    point_n = point - line_origin
-    line_n = line_vector - line_origin
-    return line_origin + line_n / la.norm(line_n) * np.dot(line_n, point_n) / la.norm(
-        line_n
-    )
-
-
 def distance_from_point_to_plane(
     point, plane_origin=np.array([0, 0]), plane_normal=np.array([1, 0])
 ):
