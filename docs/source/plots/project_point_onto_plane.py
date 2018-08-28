@@ -11,8 +11,8 @@ x = dv.project_point_onto_plane(o, n, p)
 n_u = dv.normalize(n)
 
 xx, yy = np.meshgrid(
-    np.arange(o[0] - 2.0, o[0] + 2.2, 1.0),
-    np.arange(o[1] - 2.0, o[1] + 2.2, 1.0))
+    np.arange(o[0] - 2.0, o[0] + 2.2, 1.0), np.arange(o[1] - 2.0, o[1] + 2.2, 1.0)
+)
 
 d = -np.dot(o, n_u)
 
@@ -25,9 +25,9 @@ ax = fig.add_subplot(111, projection="3d")
 
 dv.equalize_3d_axes(ax, np.array([xx, yy, zz]))
 ax.plot_wireframe(xx, yy, zz)
-ax.scatter(*o, c = 'red', s = size)
-ax.scatter(*(o + n), c = 'orange', s = size)
-ax.scatter(*p, c = 'green', s = size)
-ax.scatter(*x, c = 'blue', s = size)
+ax.scatter(*o, c="red", s=size)
+ax.scatter(*(o + n), c="orange", s=size)
+ax.scatter(*p, c="green", s=size)
+ax.scatter(*x, c="blue", s=size)
 
 plt.show()

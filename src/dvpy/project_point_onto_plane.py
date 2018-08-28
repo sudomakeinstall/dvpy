@@ -1,6 +1,7 @@
 import dvpy as dv
 import numpy as np
 
+
 def project_point_onto_plane(o, n, p):
     r"""
     Project a point `p` onto a plane defined by a point `o` and normal `n`.
@@ -22,4 +23,3 @@ def project_point_onto_plane(o, n, p):
     """
     n_u = dv.normalize(n)
     return p - np.dot(p - o, n_u) * n_u
-

@@ -13,13 +13,13 @@ line2 = np.array([p, x]).transpose()
 
 size = 100
 
-plt.plot(line1[0], line1[1], '--')
-plt.plot(line2[0], line2[1], '--')
+plt.plot(line1[0], line1[1], "--")
+plt.plot(line2[0], line2[1], "--")
 
-plt.scatter(*o, s = size, c = 'red')
-plt.scatter(*(o + v), s = size, c = 'orange')
-plt.scatter(*p, s = size, c = 'green')
-plt.scatter(*x, s = size, c = 'blue')
+plt.scatter(*o, s=size, c="red")
+plt.scatter(*(o + v), s=size, c="orange")
+plt.scatter(*p, s=size, c="green")
+plt.scatter(*x, s=size, c="blue")
 
-plt.axis('equal')
+plt.axis("equal")
 plt.show()

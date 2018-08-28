@@ -24,5 +24,5 @@ def normalize(v):
     :returns: The unit vector corresponding to `v`.
     :rtype: An array-like with the same shape as `v`.
     """
-    
+
     return v / np.linalg.norm(v)

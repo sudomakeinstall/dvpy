@@ -1,6 +1,7 @@
 
 import numpy as np
 
+
 def vector_projection(v1, v2):
     r"""
     The vector projection [1] of `v_1` onto `v_2`.  Note that `v_1` and `v_2` are

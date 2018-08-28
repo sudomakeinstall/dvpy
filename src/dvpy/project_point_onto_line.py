@@ -2,6 +2,7 @@ import numpy as np
 
 import dvpy as dv
 
+
 def project_point_onto_line(o, v, p):
     r"""
     Project a point `p` onto a line defined by a point `o` and vector `v`.
@@ -29,4 +30,3 @@ def project_point_onto_line(o, v, p):
 
     """
     return o + dv.vector_projection(p - o, v)
-
