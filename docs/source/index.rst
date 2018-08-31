@@ -13,6 +13,9 @@ Welcome to dvpy's documentation!
 .. automodule:: dvpy
    :members:
 
+.. automodule:: dvpy.tf
+   :members:
+
 Indices and tables
 ==================
 

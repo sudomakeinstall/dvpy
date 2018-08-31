@@ -19,24 +19,19 @@ import dvpy as dv
 
 
 class ImageDataGenerator(object):
-    """Generate minibatches with
-    real-time data augmentation.
-    Assume X is train img, Y is train label (same size as X with only 0 and 255 for values)
-    # Arguments
-        rotation_range: degrees (0 to 180). To X and Y
-        shift_range: fraction of total height. To X and Y
-        shear_range: shear intensity (shear angle in radians). To X and Y
-        scale_range: amount of zoom. if scalar z, zoom will be randomly picked
-            in the range [1-z, 1+z]. A sequence of two can be passed instead
-            to select this range. To X and Y
-        channel_shift_range: shift range for each channels. Only to X
-        fill_mode: points outside the boundaries are filled according to the
-            given mode ('constant', 'nearest', 'reflect' or 'wrap'). Default
-            is 'nearest'. For Y, always fill with constant 0
-        cval: value used for points outside the boundaries when fill_mode is
-            'constant'. Default is 0.
-        horizontal_flip: whether to randomly flip images horizontally. To X and Y
-        vertical_flip: whether to randomly flip images vertically. To X and Y
+    """
+    Generate minibatches with runtime data augmentation.
+    Assume X is train img, Y is train label
+
+    :param image_dimension: Number of input image dimensions.
+    :param input_layer_names: Keras layer names.
+    :param output_layer_names: Keras output layer names.
+    :param translation_range: Augmentation translation range (in fraction of image width).
+    :param rotation_range: Augmentation rotation range (in degrees).
+    :param scale_range: Augmentation scale range.
+    :param flip: Augmentation should flip image in each direction.
+    :param fill_mode: Fill mode, to pass on to resampler.
+    :param cval: Outside value to pass to resampler.
     """
 
     def __init__(
