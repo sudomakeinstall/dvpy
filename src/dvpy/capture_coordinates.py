@@ -2,10 +2,10 @@
 
 # Third Party
 import numpy as np
-import pylab as plt
+#import pylab as plt
 
 # Internal
-from .sector_mask import sector_mask
+import dvpy as dv
 
 # https://stackoverflow.com/questions/25521120/store-mouse-click-event-coordinates-with-matplotlib
 class capture_coordinates(object):
@@ -27,7 +27,7 @@ class capture_coordinates(object):
         self.update()
 
     def update(self):
-        self.m = sector_mask(self.shape, (self.y, self.x), self.radius)
+        self.m = dv.sector_mask(self.shape, (self.y, self.x), self.radius)
         if self.mask == None:
             self.mask = self.ax.imshow(self.m, alpha=0.3)
         else:
@@ -35,17 +35,17 @@ class capture_coordinates(object):
         self.ax.figure.canvas.draw()
 
 
-def capture_coordinates_from_image(image, title=None, x=None, y=None):
-    fig, ax = plt.subplots(1, 1)
-    if title is not None:
-        plt.title(title)
-    capture_object = capture_coordinates(ax, image, x=x, y=y)
-    cid = fig.canvas.mpl_connect("button_press_event", capture_object.onclick)
-    plt.gca().set_axis_off()
-    plt.gca().xaxis.set_major_locator(plt.NullLocator())
-    plt.gca().yaxis.set_major_locator(plt.NullLocator())
-    plt.show()
-    fig.canvas.mpl_disconnect(cid)
-    if (capture_object.x is None) or (capture_object.y is None):
-        raise ValueError("No point was selected.")
-    return capture_object
+#def capture_coordinates_from_image(image, title=None, x=None, y=None):
+#    fig, ax = plt.subplots(1, 1)
+#    if title is not None:
+#        plt.title(title)
+#    capture_object = capture_coordinates(ax, image, x=x, y=y)
+#    cid = fig.canvas.mpl_connect("button_press_event", capture_object.onclick)
+#    plt.gca().set_axis_off()
+#    plt.gca().xaxis.set_major_locator(plt.NullLocator())
+#    plt.gca().yaxis.set_major_locator(plt.NullLocator())
+#    plt.show()
+#    fig.canvas.mpl_disconnect(cid)
+#    if (capture_object.x is None) or (capture_object.y is None):
+#        raise ValueError("No point was selected.")
+#    return capture_object

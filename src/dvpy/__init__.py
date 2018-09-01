@@ -52,7 +52,6 @@ from .read_obj import read_obj
 from .rescale_phase_siemens import rescale_phase_siemens
 from .rotate_2d_vector import rotate_2d_vector
 from .rotation_matrix_from_angle import rotation_matrix_from_angle
-from .save_interpolated_image import save_interpolated_image
 from .save_png import save_png
 from .section_print import section_print
 from .sector_mask import sector_mask
@@ -83,7 +82,6 @@ __all__ = [
     "binarize_array",
     "bounding_box",
     "capture_coordinates",
-    "capture_coordinates_from_image",
     "collapse_iterable",
     "complex_from_mag_and_phase",
     "convert_nii",
@@ -123,7 +121,6 @@ __all__ = [
     "rescale_phase_siemens",
     "rotation_matrix_from_angle",
     "rotate_2d_vector",
-    "save_interpolated_image",
     "save_png",
     "section_print",
     "sector_mask",
