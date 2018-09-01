@@ -1,70 +1,70 @@
 from . import tf
 
-from .AugmentationParameters import *
-from .add_horizontal_limits import *
-from .add_trendline import *
-from .aha_polar_plot import *
-from .aha_segments import *
+from .AugmentationParameters import AugmentationParameters
+from .add_horizontal_limits import add_horizontal_limits
+from .add_trendline import add_trendline
+from .aha_polar_plot import aha_polar_plot
+from .aha_segments import aha_segments
 from .angle_between import angle_between
-from .annotate_bland_altman import *
-from .annotate_iqr import *
-from .annotate_linear_regression import *
-from .annotate_mu_sd import *
-from .polar_plot import *
-from .apply_affine_transform import *
-from .binarize_array import *
+from .annotate_bland_altman import annotate_bland_altman
+from .annotate_iqr import annotate_iqr
+from .annotate_linear_regression import annotate_linear_regression
+from .annotate_mu_sd import annotate_mu_sd
+from .polar_plot import polar_plot
+from .apply_affine_transform import apply_affine_transform
+from .binarize_array import binarize_array
 from .bounding_box import bounding_box
-from .capture_coordinates import *
-from .collapse_iterable import *
-from .complex_from_mag_and_phase import *
-from .convert_nii import *
-from .copy_nii import *
-from .correct_nonuniform_illumination import *
-from .crop_array import *
-from .crop_or_pad_to_target import *
-from .determine_number_of_files import *
-from .displacement_field import *
-from .displacement_gradient_tensor import *
+from .capture_coordinates import capture_coordinates
+from .collapse_iterable import collapse_iterable
+from .complex_from_mag_and_phase import complex_from_mag_and_phase
+from .convert_nii import convert_nii
+from .copy_nii import copy_nii
+from .correct_nonuniform_illumination import correct_nonuniform_illumination
+from .crop_array import crop_array
+from .crop_or_pad import crop_or_pad
+from .determine_number_of_files import determine_number_of_files
+from .distance_from_point_to_plane import distance_from_point_to_plane
+from .distance_from_points_to_plane import distance_from_points_to_plane
+from .displacement_field import displacement_field
+from .displacement_gradient_tensor import displacement_gradient_tensor
 from .equalize_3d_axes import equalize_3d_axes
-from .euler_poincare_characteristic import *
-from .find_duplicates import *
-from .fit_plane import *
-from .fit_plane_to_points import *
-from .flip_axis import *
-from .format_p_value import *
-from .geometry import *
-from .generate_random_transform import *
-from .ITKSnapSegmentationLabel import *
-from .keep_largest_connected_component import *
-from .lagrangian_strain_tensor import *
-from .latex_macro import *
-from .learning_rate_step_decay import *
-from .mask_to_transform import *
-from .nii_vol_to_slices import *
-from .normalize import *
-from .one_hot import *
-from .pandas_append_inplace import *
-from .physical_coordinates import *
+from .euler_poincare_characteristic import euler_poincare_characteristic
+from .find_duplicates import find_duplicates
+from .flip_axis import flip_axis
+from .format_p_value import format_p_value
+from .generate_circle import generate_circle
+from .generate_random_transform import generate_random_transform
+from .ITKSnapSegmentationLabel import ITKSnapSegmentationLabel
+from .keep_largest_connected_component import keep_largest_connected_component
+from .lagrangian_strain_tensor import lagrangian_strain_tensor
+from .latex_macro import latex_macro
+from .learning_rate_step_decay import learning_rate_step_decay
+from .mask_to_transform import mask_to_transform
+from .nii_vol_to_slices import nii_vol_to_slices
+from .normalize import normalize
+from .one_hot import one_hot
+from .pandas_append_inplace import pandas_append_inplace
+from .physical_coordinates import physical_coordinates
 from .project_point_onto_line import project_point_onto_line
 from .project_point_onto_plane import project_point_onto_plane
-from .pop_and_return import *
-from .read_obj import *
-from .rescale_phase_siemens import *
-from .rotate_2d_vector import *
-from .rotation_matrix_from_angle import *
-from .save_interpolated_image import *
-from .save_png import *
-from .section_print import *
-from .sector_mask import *
-from .segmentation_metrics import *
-from .subdivide_quadratic_bspline import *
-from .tag_magnitudes import *
-from .tokenize_path import *
-from .transform_matrix_offset_center import *
+from .pop_and_return import pop_and_return
+from .read_obj import read_obj
+from .rescale_phase_siemens import rescale_phase_siemens
+from .rotate_2d_vector import rotate_2d_vector
+from .rotation_matrix_from_angle import rotation_matrix_from_angle
+from .save_interpolated_image import save_interpolated_image
+from .save_png import save_png
+from .section_print import section_print
+from .sector_mask import sector_mask
+from .segmentation_metrics import jaccard_index, dice_coefficient, jaccard_to_dice, dice_to_jaccard
+from .subdivide_quadratic_bspline import subdivide_quadratic_bspline
+from .tag_magnitudes import tag_magnitudes
+from .tokenize_path import tokenize_path
+from .transform_matrix_offset_center import transform_full_matrix_offset_center, transform_partial_matrix_offset_center
 from .vector_projection import vector_projection
-from .wrapped_phase_difference import *
-from .wrap_phase import *
-from .normalize_image import *
+from .wrapped_phase_difference import wrapped_phase_difference
+from .wrap_phase import wrap_phase
+from .normalize_image import normalize_image
 
 __all__ = [
     "AugmentationParameters",
@@ -100,8 +100,6 @@ __all__ = [
     "equalize_3d_axes",
     "euler_poincare_characteristic",
     "find_duplicates",
-    "fit_plane",
-    "fit_plane_to_points",
     "flip_axis",
     "format_p_value",
     "generate_random_transform",

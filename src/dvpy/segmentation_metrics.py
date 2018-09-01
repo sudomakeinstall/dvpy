@@ -3,11 +3,11 @@ import numpy as np
 
 def jaccard_index(y_true, y_pred, label, epsilon=1e-5):
     """
-  Calculate the Jaccard index (i.e., intersection-over-union) between
-  a ground truth (y_true) and predicted (y_pred) segmentation for
-  a given segmentation label (label).
-  https://en.wikipedia.org/wiki/Jaccard_index
-  """
+    Calculate the Jaccard index (i.e., intersection-over-union) between
+    a ground truth (y_true) and predicted (y_pred) segmentation for
+    a given segmentation label (label).
+    https://en.wikipedia.org/wiki/Jaccard_index
+    """
 
     # Binarize y_true and y_pred, such that the label becomes
     # foreground (1) and all other labels become background (0).
@@ -26,11 +26,11 @@ def jaccard_index(y_true, y_pred, label, epsilon=1e-5):
 
 def dice_coefficient(y_true, y_pred, label, epsilon=1e-5):
     """
-  Calculate the Dice coefficient between a ground truth (y_true)
-  and predicted (y_pred) segmentation for a given segmentation
-  label (label).
-  https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient
-  """
+    Calculate the Dice coefficient between a ground truth (y_true)
+    and predicted (y_pred) segmentation for a given segmentation
+    label (label).
+    https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient
+    """
 
     # Binarize y_true and y_pred, such that the label becomes
     # foreground (1) and all other labels become background (0).

@@ -4,7 +4,7 @@
 import numpy as np
 
 # Internal
-from .geometry import distance_from_points_to_plane
+import dvpy as dv
 
 
 def tag_magnitudes(x, y, t, T1=850, flip_angle=np.pi / 4, tag_rotation=0.0):
@@ -13,10 +13,10 @@ def tag_magnitudes(x, y, t, T1=850, flip_angle=np.pi / 4, tag_rotation=0.0):
 
     points = np.transpose(np.array((x, y)), (1, 2, 0))
 
-    ro = distance_from_points_to_plane(
+    ro = dv.distance_from_points_to_plane(
         points, np.array((0, 0)), np.array((np.cos(tag_rotation), np.sin(tag_rotation)))
     )
-    pe = distance_from_points_to_plane(
+    pe = dv.distance_from_points_to_plane(
         points,
         np.array((0, 0)),
         np.array((np.cos(tag_rotation + np.pi / 2), np.sin(tag_rotation + np.pi / 2))),
