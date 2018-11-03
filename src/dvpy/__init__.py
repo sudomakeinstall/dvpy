@@ -34,6 +34,7 @@ from .flip_axis import flip_axis
 from .format_p_value import format_p_value
 from .generate_circle import generate_circle
 from .generate_random_transform import generate_random_transform
+from .is_sorted import is_sorted
 from .ITKSnapSegmentationLabel import ITKSnapSegmentationLabel
 from .keep_largest_connected_component import keep_largest_connected_component
 from .lagrangian_strain_tensor import lagrangian_strain_tensor
@@ -55,11 +56,19 @@ from .rotation_matrix_from_angle import rotation_matrix_from_angle
 from .save_png import save_png
 from .section_print import section_print
 from .sector_mask import sector_mask
-from .segmentation_metrics import jaccard_index, dice_coefficient, jaccard_to_dice, dice_to_jaccard
+from .segmentation_metrics import (
+    jaccard_index,
+    dice_coefficient,
+    jaccard_to_dice,
+    dice_to_jaccard,
+)
 from .subdivide_quadratic_bspline import subdivide_quadratic_bspline
 from .tag_magnitudes import tag_magnitudes
 from .tokenize_path import tokenize_path
-from .transform_matrix_offset_center import transform_full_matrix_offset_center, transform_partial_matrix_offset_center
+from .transform_matrix_offset_center import (
+    transform_full_matrix_offset_center,
+    transform_partial_matrix_offset_center,
+)
 from .vector_projection import vector_projection
 from .wrapped_phase_difference import wrapped_phase_difference
 from .wrap_phase import wrap_phase
@@ -101,6 +110,7 @@ __all__ = [
     "flip_axis",
     "format_p_value",
     "generate_random_transform",
+    "is_sorted",
     "ITKSnapSegmentationLabel",
     "jaccard_index",
     "jaccard_to_dice",

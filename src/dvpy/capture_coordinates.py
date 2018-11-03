@@ -2,7 +2,8 @@
 
 # Third Party
 import numpy as np
-#import pylab as plt
+
+# import pylab as plt
 
 # Internal
 import dvpy as dv
@@ -35,7 +36,7 @@ class capture_coordinates(object):
         self.ax.figure.canvas.draw()
 
 
-#def capture_coordinates_from_image(image, title=None, x=None, y=None):
+# def capture_coordinates_from_image(image, title=None, x=None, y=None):
 #    fig, ax = plt.subplots(1, 1)
 #    if title is not None:
 #        plt.title(title)
