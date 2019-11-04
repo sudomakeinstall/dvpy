@@ -27,8 +27,8 @@ class NumpyArrayIterator(IteratorBase):
         normalize=False,
     ):
 
-        if K.image_dim_ordering() != "tf":
-            raise Exception("Only tensorflow backend is supported.")
+#        if K.image_dim_ordering() != "tf":
+#            raise Exception("Only tensorflow backend is supported.")
 
         if len(X) != len(y):
 

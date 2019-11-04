@@ -59,8 +59,8 @@ class ImageDataGenerator(object):
             cval=cval,
         )
 
-        if K.image_dim_ordering() != "tf":
-            raise Exception("Only tensorflow backend is supported.")
+#        if K.image_dim_ordering() != "tf":
+#            raise Exception("Only tensorflow backend is supported.")
 
     def flow(
         self,
