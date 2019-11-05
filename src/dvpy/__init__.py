@@ -11,7 +11,10 @@ from .annotate_iqr import annotate_iqr
 from .annotate_linear_regression import annotate_linear_regression
 from .annotate_mu_sd import annotate_mu_sd
 from .polar_plot import polar_plot
-from .apply_affine_transform import apply_affine_transform
+from .apply_affine_transform import (
+    apply_affine_transform,
+    apply_affine_transform_channelwise,
+)
 from .binarize_array import binarize_array
 from .bounding_box import bounding_box
 from .capture_coordinates import capture_coordinates
