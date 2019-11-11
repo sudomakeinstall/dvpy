@@ -72,6 +72,7 @@ from .transform_matrix_offset_center import (
     transform_full_matrix_offset_center,
     transform_partial_matrix_offset_center,
 )
+from .turn_off_axis import turn_off_axis
 from .vector_projection import vector_projection
 from .wrapped_phase_difference import wrapped_phase_difference
 from .wrap_phase import wrap_phase
@@ -142,6 +143,7 @@ __all__ = [
     "tokenize_path",
     "transform_full_matrix_offset_center",
     "transform_partial_matrix_offset_center",
+    "turn_off_axis",
     "wrapped_phase_difference",
     "wrap_phase",
     "generate_circle",
