@@ -88,7 +88,7 @@ input[0, 10, 10:-10, 10:-10] = 1
 temp_input = input.copy()
 input = K.variable(input)
 
-model.fit(input, input, batch_size=None, steps_per_epoch=1, epochs=2000, verbose=1)
+model.fit(input, input, batch_size=None, steps_per_epoch=1, epochs=256, verbose=1)
 
 
 y = model.predict(input, steps=1)

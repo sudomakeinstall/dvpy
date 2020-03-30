@@ -1,0 +1,13 @@
+version: '2.3'
+
+services:
+  volumesegmentation:
+    build:
+      args:
+        BASEIMAGEVERSION: 1.15.0-gpu-py3
+    runtime: nvidia
+    volumes:
+      # Mount host repo to aid development
+      - type: bind
+        source: .
+        target: /code

@@ -1,0 +1,12 @@
+version: '2.3'
+
+services:
+  volumesegmentation:
+    build:
+      args:
+        BASEIMAGEVERSION: 1.15.0-py3
+    volumes:
+      # Mount host repo to aid development
+      - type: bind
+        source: .
+        target: /code

@@ -1,6 +1,6 @@
 # Install:
 
-    $ pipenv install git+https://github.com/dvigneault/dvpy.git#egg=dvpy
+    $ pip install git+https://github.com/dvigneault/dvpy.git#egg=dvpy
 
 The only dependency *not* installed by default is tensorflow, as we do not want to specify the GPU or CPU version.  These can be installed as follows:
 
@@ -9,21 +9,15 @@ The only dependency *not* installed by default is tensorflow, as we do not want 
 
 # Run tests:
 
-## Clone the repository:
+First, build your development environment (requires that Docker be installed and running):
 
-    $ git clone git@github.com:DVigneault/dvpy.git ~/Developer/repositories/dvpy
-    $ cd ~/Developer/repositories/dvpy
+    $ ./docker-build.sh
 
-## Set up a development environment:
-    $ pipenv shell
+Spin up your container:
 
-## Install a local copy, plus the dependencies:
+    $ ./docker-run.sh
 
-    $ pipenv install -e ./
-    $ pipenv install tensorflow # or tensorflow-gpu, as needed
-    $ pipenv install pytest
-
-## Run the tests!
+And run your tests!
 
     $ pytest                                      # Run all the tests
     $ pytest ./test/test_find_duplicates.py       # Run a specific test
