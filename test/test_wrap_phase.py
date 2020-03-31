@@ -15,7 +15,7 @@ def test_wrap_phase():
     assert np.allclose(wrap_phase(np.ones((3, 3))), np.ones((3, 3)))
     assert np.allclose(wrap_phase(np.ones((3, 3)) + 2 * np.pi), np.ones((3, 3)))
 
-    # Matrices
+    # ND Array
     assert np.allclose(
-        wrap_phase(np.matrix(np.zeros((3, 3)))), np.matrix(np.zeros((3, 3)))
+        wrap_phase(np.array(np.zeros((3, 3)))), np.array(np.zeros((3, 3)))
     )
